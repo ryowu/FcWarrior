@@ -23,8 +23,6 @@ public class JumpThroughPlatformController : MonoBehaviour
 		dirY = Input.GetAxisRaw("Vertical");
 		if (dirY < 0 && Input.GetButtonDown("Fire2"))
 		{
-			Debug.Log("in update");
-			Debug.Log(playerOnPlatform ? "T" : "F");
 			if (playerOnPlatform)
 			{
 				effector.rotationalOffset = 180f;

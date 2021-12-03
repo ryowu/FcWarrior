@@ -39,7 +39,6 @@ public class PlayerLife : MonoBehaviour
 			if (ts.TotalMilliseconds > 300f)
 			{
 				GlobalVars.IsPlayerControllable = true;
-
 			}
 		}
 	}
@@ -97,6 +96,8 @@ public class PlayerLife : MonoBehaviour
 
 	private void RestartLevel()
 	{
+		playerBody.bodyType = RigidbodyType2D.Dynamic;
+		anim.SetInteger("state", 0);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

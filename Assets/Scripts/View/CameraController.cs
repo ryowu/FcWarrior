@@ -12,13 +12,15 @@ public class CameraController : MonoBehaviour
 	private float posX;
 	private float posY;
 
-	[SerializeField] private Transform player;
+	private GameObject player;
 	[SerializeField] private Transform backgroundImage;
 
 	private void Start()
 	{
 		posX = transform.position.x;
 		posY = transform.position.y;
+
+		player = GameObject.FindGameObjectWithTag("Player");
 		//UpdateCameraPosition();
 	}
 
@@ -36,16 +38,16 @@ public class CameraController : MonoBehaviour
 
 	private void UpdateCameraPosition()
 	{
-		if (player.position.x > boundXLeft &&
-	player.position.x < boundXRight)
+		if (player.transform.position.x > boundXLeft &&
+	player.transform.position.x < boundXRight)
 		{
-			posX = player.position.x;
+			posX = player.transform.position.x;
 		}
 
-		if (player.position.y > boundYBottom &&
-			player.position.y < boundYTop)
+		if (player.transform.position.y > boundYBottom &&
+			player.transform.position.y < boundYTop)
 		{
-			posY = player.position.y;
+			posY = player.transform.position.y;
 		}
 
 		if (GlobalVars.IsCameraFollowing)

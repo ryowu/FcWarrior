@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2C00D79D-A0DE-923F-E4C8-50978D070670}</ProjectGuid>
+    <ProjectGuid>{A57EF379-CFE2-1B3E-B70D-68D4BD3A7612}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Items\ItemCollector.cs" />
     <Compile Include="Assets\Scripts\Enemy\PatrolBase.cs" />
+    <Compile Include="Assets\Scripts\View\HealthyBarController.cs" />
     <Compile Include="Assets\Scripts\View\CameraController.cs" />
     <Compile Include="Assets\Scripts\View\FadeoutController.cs" />
     <Compile Include="Assets\Scripts\Platform\PlatformPatrol.cs" />
@@ -66,17 +67,19 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyPatrol.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLife.cs" />
+    <Compile Include="Assets\Scripts\Player\CheckPointController.cs" />
+    <Compile Include="Assets\Scripts\View\CheckPointStation.cs" />
     <Compile Include="Assets\Scripts\View\InfoLabelController.cs" />
     <Compile Include="Assets\Scripts\Items\CollectableItemController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\StageClear.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyData.cs" />
     <Compile Include="Assets\Scripts\View\FadeInController.cs" />
     <Compile Include="Assets\Scripts\View\EnterZoneController.cs" />
     <Compile Include="Assets\Scripts\Platform\JumpThroughPlatformController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMonitor.cs" />
     <Compile Include="Assets\Scripts\Enemy\MonitorPointController.cs" />
-    <Compile Include="Assets\Scripts\View\HealthyBarController.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />
