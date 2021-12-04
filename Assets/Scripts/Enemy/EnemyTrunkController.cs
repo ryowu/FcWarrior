@@ -15,6 +15,7 @@ namespace Assets.Scripts.Enemy
 		private EnemyLife elife;
 		private Animator aim;
 		private Renderer render;
+		private SpriteRenderer sr;
 
 		GameObject trunkBulletNew;
 
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Enemy
 			aim = GetComponent<Animator>();
 			elife = GetComponent<EnemyLife>();
 			render = GetComponent<Renderer>();
+			sr = GetComponent<SpriteRenderer>();
 		}
 
 		protected override void DoRoutineWork()
@@ -43,7 +45,15 @@ namespace Assets.Scripts.Enemy
 
 				//set bullet
 				trunkBulletNew = Instantiate(trunkBullet, transform.position, transform.rotation, transform.parent);
-				trunkBulletNew.transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 0.2f, transform.position.z);
+				if (sr.flipX)
+				{
+					trunkBulletNew.transform.position = new Vector3(transform.position.x + 1f, transform.position.y - 0.2f, transform.position.z);
+					trunkBulletNew.GetComponent<SpriteRenderer>().flipX = true;
+				}
+				else
+				{
+					trunkBulletNew.transform.position = new Vector3(transform.position.x - 1f, transform.position.y - 0.2f, transform.position.z);
+				}
 			}
 		}
 	}

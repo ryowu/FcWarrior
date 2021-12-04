@@ -23,7 +23,7 @@ public class PlayerLife : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		hp = 20;
+		hp = 10;
 		healthyBar.SetHPMaxValue(hp);
 		healthyBar.SetHPValue(hp);
 		anim = GetComponent<Animator>();

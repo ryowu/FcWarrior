@@ -26,6 +26,7 @@ public class EnemyRoutineAction : MonoBehaviour
 			DoRoutineWork();
 			startRoutineTime = DateTime.Now;
 		}
+
 		InnerUpdate();
 	}
 
