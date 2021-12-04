@@ -23,7 +23,7 @@ public class InfoLabelController : MonoBehaviour
 	{
 		if (startFadeOut)
 		{
-			alpha -= 1f * Time.deltaTime;
+			alpha -= 0.5f * Time.deltaTime;
 			if (alpha < 0)
 			{
 				info.SetActive(false);

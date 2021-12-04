@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnterBossRoomController : MonoBehaviour
 {
-	[SerializeField] private GameObject camera;
+	[SerializeField] private GameObject cameraMain;
 	[SerializeField] private GameObject bgMusic;
 
 	private AudioSource audioBGMusic;
@@ -26,7 +26,7 @@ public class EnterBossRoomController : MonoBehaviour
 	{
 		startCameraAnimation = false;
 		isAnimationWorking = true;
-		targetPos = new Vector3(targetX, targetY, camera.transform.position.z);
+		targetPos = new Vector3(targetX, targetY, cameraMain.transform.position.z);
 		audioBGMusic = bgMusic.GetComponent<AudioSource>();
 	}
 
@@ -37,13 +37,13 @@ public class EnterBossRoomController : MonoBehaviour
 		if (!isAnimationWorking) return;
 		if (GlobalVars.IsCameraFollowing) return;
 
-		if (Vector3.Distance(targetPos, camera.transform.position) > 0.1f)
+		if (Vector3.Distance(targetPos, cameraMain.transform.position) > 0.1f)
 		{
-			camera.transform.position = Vector3.MoveTowards(camera.transform.position, targetPos, movingSpeed * Time.deltaTime);
+			cameraMain.transform.position = Vector3.MoveTowards(cameraMain.transform.position, targetPos, movingSpeed * Time.deltaTime);
 		}
 		else
 		{
-			camera.transform.position = targetPos;
+			cameraMain.transform.position = targetPos;
 		}
 
 

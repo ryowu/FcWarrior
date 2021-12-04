@@ -49,7 +49,7 @@ public class PlayerLife : MonoBehaviour
 		{
 			PlayerDie();
 		}
-		else if(collision.gameObject.CompareTag("Enemy"))
+		else if(collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
 		{
 			TimeSpan ts = DateTime.Now - hitStartTime;
 			if (ts.TotalMilliseconds > 300f)
@@ -65,7 +65,13 @@ public class PlayerLife : MonoBehaviour
 					PlayerDie();
 					return;
 				}
-				
+
+				//destroy enemy bullet
+				if (collision.gameObject.CompareTag("EnemyBullet"))
+				{
+					Destroy(collision.gameObject);
+				}
+
 				GlobalVars.IsPlayerControllable = false;
 				isHit = true;
 				hitStartTime = DateTime.Now;
