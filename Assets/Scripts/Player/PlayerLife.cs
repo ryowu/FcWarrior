@@ -88,8 +88,6 @@ public class PlayerLife : MonoBehaviour
 					playerBody.velocity = new Vector2(vx, playerBody.velocity.y);
 
 			}
-
-			//PlayerDie();
 		}
 	}
 

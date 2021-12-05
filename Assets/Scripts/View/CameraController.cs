@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-	public float boundXLeft = 5.56f;
+	public float boundXLeft = -0.49f;
 	public float boundXRight = 183.57f;
-	public float boundYTop = 44.1f;
-	public float boundYBottom = 5.48f;
+	public float boundYTop = 35.1f;
+	public float boundYBottom = 2.2f;
 
 	private float posX;
 	private float posY;

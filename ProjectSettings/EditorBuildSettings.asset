@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/ChooseStage.unity
     guid: f89050505dabfb744b439fd30cfed08f
   - enabled: 1
-    path: Assets/Scenes/SceneStage1.unity
+    path: Assets/Scenes/Stage1/Stage1_1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/SceneStage2.unity
-    guid: 61fda87d6555df44eb573b8787cc6a09
+    path: Assets/Scenes/Stage1/Stage1_2.unity
+    guid: 7148c249e2c6be048aee910247432e4e
+  - enabled: 1
+    path: Assets/Scenes/Stage1/Stage1_3.unity
+    guid: f48b158c1e40b754dbfe6a0c2f7096f2
   m_configObjects: {}

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7262595120073411968}
   - component: {fileID: 7262595120073411969}
   - component: {fileID: 7262595120073411998}
+  - component: {fileID: 9109269922958694860}
+  - component: {fileID: 5631536383362207545}
   m_Layer: 5
   m_Name: FadeInOutImage
   m_TagString: Untagged
@@ -95,3 +97,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9109269922958694860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262595120073411996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659800c45b66c2f47be8ea6d6b486cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5631536383362207545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262595120073411996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5859ea681b94144a0b760da3323562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageSceneIndex: 0

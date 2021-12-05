@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
 	// Start is called before the first frame update
 	private void Start()
 	{
-		Cursor.visible = false;
 		GlobalVars.IsCameraFollowing = true;
 		GlobalVars.IsPlayerControllable = true;
 
@@ -47,7 +46,16 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	private void Update()
 	{
-		if (!GlobalVars.IsPlayerControllable) return;
+		if (!GlobalVars.IsPlayerControllable)
+		{
+			//rb.velocity = new Vector2(0f, 0f);
+			//rb.bodyType = RigidbodyType2D.Static;
+			return;
+		}
+		else
+		{
+			rb.bodyType = RigidbodyType2D.Dynamic;
+		}
 
 		if (rb.bodyType == RigidbodyType2D.Static) return;
 

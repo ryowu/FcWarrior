@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnterZoneController : MonoBehaviour
 {
-	[SerializeField] private GameObject camera;
+	[SerializeField] private GameObject cameraMain;
 
 	[SerializeField] private float targetX = 183.57f;
 	[SerializeField] private float targetY = -16.63f;
@@ -30,8 +30,8 @@ public class EnterZoneController : MonoBehaviour
 	{
 		startCameraAnimation = false;
 		isAnimationWorking = true;
-		targetPos = new Vector3(targetX, targetY, camera.transform.position.z);
-		cameraController = camera.GetComponent<CameraController>();
+		targetPos = new Vector3(targetX, targetY, cameraMain.transform.position.z);
+		cameraController = cameraMain.GetComponent<CameraController>();
 	}
 
 	// Update is called once per frame
@@ -41,13 +41,13 @@ public class EnterZoneController : MonoBehaviour
 		if (!isAnimationWorking) return;
 		if (GlobalVars.IsCameraFollowing) return;
 
-		if (Vector3.Distance(targetPos, camera.transform.position) > 0.1f)
+		if (Vector3.Distance(targetPos, cameraMain.transform.position) > 0.1f)
 		{
-			camera.transform.position = Vector3.MoveTowards(camera.transform.position, targetPos, movingSpeed * Time.deltaTime);
+			cameraMain.transform.position = Vector3.MoveTowards(cameraMain.transform.position, targetPos, movingSpeed * Time.deltaTime);
 		}
 		else
 		{
-			camera.transform.position = targetPos;
+			cameraMain.transform.position = targetPos;
 			isAnimationWorking = false;
 			GlobalVars.IsPlayerControllable = true;
 			player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -55,7 +55,7 @@ public class EnterZoneController : MonoBehaviour
 			if (RestoreCameraFollowing)
 			{
 				GlobalVars.IsCameraFollowing = true;
-				cameraController.ResetToPosition(camera.transform.position);
+				cameraController.ResetToPosition(cameraMain.transform.position);
 				cameraController.boundXLeft = boundXLeft;
 				cameraController.boundXRight = boundXRight;
 				cameraController.boundYBottom = boundYBottom;

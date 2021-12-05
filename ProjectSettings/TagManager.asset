@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - dropItem
   - EnemyBullet
+  - FadeoutImage
   layers:
   - Default
   - TransparentFX

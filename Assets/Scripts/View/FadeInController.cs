@@ -21,6 +21,6 @@ public class FadeInController : MonoBehaviour
 
 	private void OnFadeInComplete()
 	{
-		Destroy(this.gameObject);
+		//this.gameObject.SetActive(false);
 	}
 }

@@ -12,7 +12,7 @@ public class CheckPointController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+		//SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 	}
 
 	private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
