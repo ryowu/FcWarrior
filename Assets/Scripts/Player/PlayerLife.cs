@@ -93,6 +93,7 @@ public class PlayerLife : MonoBehaviour
 
 	private void PlayerDie()
 	{
+		GlobalVars.IsPlayerControllable = false;
 		dieSoundEffect.Play();
 		anim.SetTrigger("death");
 		playerBody.bodyType = RigidbodyType2D.Static;

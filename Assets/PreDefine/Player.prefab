@@ -198,8 +198,10 @@ MonoBehaviour:
   jumpThroughGround:
     serializedVersion: 2
     m_Bits: 0
-  moveSpeed: 10
+  moveSpeed: 8
   jumpForce: 16
+  bulletGapTime: 500
+  bulletMaxCount: 3
   bulletSpeed: 35
   jumpSoundEffect: {fileID: 4621078170497656969}
   shootEffect: {fileID: 718272915858776989}

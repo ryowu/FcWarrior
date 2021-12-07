@@ -23,7 +23,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 	void Start()
 	{
 		Cursor.visible = false;
-		stage = 1;
+		stage = 2;
 		lastInputTime = DateTime.Now;
 
 		anim = GetComponent<Animator>();
@@ -53,10 +53,10 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 			else if (dirY < -0.75)
 				stage++;
 
-			if (stage < 1)
-				stage = 5;
-			else if (stage > 5)
-				stage = 1;
+			if (stage < 2)
+				stage = 6;
+			else if (stage > 6)
+				stage = 2;
 
 			if (originalStage != stage)
 			{
@@ -80,31 +80,31 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 
 		switch (stage)
 		{
-			case 1:
+			case 2:
 				{
 					posX = 0f;
 					posY = 0f;
 					break;
 				}
-			case 2:
+			case 3:
 				{
 					posX = 6.1f;
 					posY = 0f;
 					break;
 				}
-			case 3:
+			case 4:
 				{
 					posX = 11.94f;
 					posY = 0f;
 					break;
 				}
-			case 4:
+			case 5:
 				{
 					posX = 2.74f;
 					posY = -4.81f;
 					break;
 				}
-			case 5:
+			case 6:
 				{
 					posX = 9.29f;
 					posY = -4.81f;

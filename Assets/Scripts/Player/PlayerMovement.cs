@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] private float moveSpeed = 7f;
 	[SerializeField] private float jumpForce = 14f;
-
+	[SerializeField] private int bulletGapTime = 500;
+	private DateTime bulletStartShootTime;
+	[SerializeField] private int bulletMaxCount = 3;
+	private int bulletCurrentCount;
 	[SerializeField] private float bulletSpeed = 20f;
 
 	private enum MovementState { idle, running, jumping, falling, doubleJump, hit }
@@ -41,6 +45,9 @@ public class PlayerMovement : MonoBehaviour
 		anim = GetComponent<Animator>();
 
 		jumpPhase = 0;
+
+		bulletStartShootTime = DateTime.Now;
+		bulletCurrentCount = 0;
 	}
 
 	// Update is called once per frame
@@ -48,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (!GlobalVars.IsPlayerControllable)
 		{
+			rb.bodyType = RigidbodyType2D.Dynamic;
 			rb.velocity = new Vector2(0f, 0f);
 			rb.bodyType = RigidbodyType2D.Static;
 			return;
@@ -91,6 +99,28 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetButtonDown("Fire1"))
 		{
+			//if (bulletCurrentCount >= bulletMaxCount)
+			//{
+			//	TimeSpan ts = DateTime.Now - bulletStartShootTime;
+			//	//cooldown finish
+			//	if (ts.TotalMilliseconds >= bulletGapTime)
+			//	{
+			//		bulletCurrentCount = 0;
+			//	}
+			//}
+			//else
+			//{
+			//	bulletCurrentCount++;
+
+			//	bulletStartShootTime = DateTime.Now; // remember the last shoot time
+
+			//	GameObject bulletNew = Instantiate(bulletPlayer, transform.position, transform.rotation, transform.parent);
+			//	FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
+			//	fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
+			//	fb.MovingSpeed = bulletSpeed;
+			//	shootEffect.Play();
+			//}
+
 			GameObject bulletNew = Instantiate(bulletPlayer, transform.position, transform.rotation, transform.parent);
 			FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
 			fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
