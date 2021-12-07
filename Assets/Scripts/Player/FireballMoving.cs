@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class FireballMoving : MonoBehaviour
 {
-	// Start is called before the first frame update
-	private float startPositionX;
+	public Vector3 TargetPostion;
+	public float MovingSpeed;
 
 	void Start()
 	{
-		startPositionX = transform.position.x;
+
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (Mathf.Abs(startPositionX - transform.position.x) > 20f)
+		if (Vector3.Distance(TargetPostion, transform.position) > 0.1f)
 		{
+			transform.position = Vector3.MoveTowards(transform.position, TargetPostion, MovingSpeed * Time.deltaTime);
+		}
+		else
+		{
+			transform.position = TargetPostion;
 			Destroy(this.gameObject);
 		}
 	}

@@ -48,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (!GlobalVars.IsPlayerControllable)
 		{
-			//rb.velocity = new Vector2(0f, 0f);
-			//rb.bodyType = RigidbodyType2D.Static;
+			rb.velocity = new Vector2(0f, 0f);
+			rb.bodyType = RigidbodyType2D.Static;
 			return;
 		}
 		else
@@ -92,8 +92,9 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetButtonDown("Fire1"))
 		{
 			GameObject bulletNew = Instantiate(bulletPlayer, transform.position, transform.rotation, transform.parent);
-			bool flipDirection = sprite.flipX;
-			bulletNew.GetComponent<Rigidbody2D>().velocity = new Vector2((flipDirection ? -1f : 1f) * bulletSpeed, 0f);
+			FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
+			fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
+			fb.MovingSpeed = bulletSpeed;
 			shootEffect.Play();
 		}
 

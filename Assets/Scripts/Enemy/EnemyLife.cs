@@ -13,10 +13,11 @@ public class EnemyLife : MonoBehaviour
 	[SerializeField] private AudioSource hitSoundEffect;
 	[SerializeField] private GameObject diamond;
 	[SerializeField] private GameObject coin;
+	[SerializeField] private bool DropItems = true;
 
 	public bool IsAlive;
 
-	private EnemyData eDate;
+	protected EnemyData eData;
 
 	// Start is called before the first frame update
 	void Start()
@@ -25,21 +26,22 @@ public class EnemyLife : MonoBehaviour
 		anim = GetComponent<Animator>();
 		enemyBody = GetComponent<Rigidbody2D>();
 		enemyCollider = GetComponent<BoxCollider2D>();
-		eDate = GetComponent<EnemyData>();
+		eData = GetComponent<EnemyData>();
+		InnerStart();
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
+	protected virtual void InnerStart()
+	{ }
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Bullet") && !isDieing)
 		{
-			eDate.EnemyHP -= 6;
-			if (eDate.EnemyHP <= 0)
+			eData.EnemyHP -= 6;
+
+			RefreshHPBar();
+
+			if (eData.EnemyHP <= 0)
 			{
 				isDieing = true;
 				enemyCollider.isTrigger = true;
@@ -56,6 +58,8 @@ public class EnemyLife : MonoBehaviour
 		}
 	}
 
+	protected virtual void RefreshHPBar() { }
+
 	private void EnemyDie()
 	{
 		dieSoundEffect.Play();
@@ -65,14 +69,17 @@ public class EnemyLife : MonoBehaviour
 
 	private void DestroyEnemy()
 	{
-		float rndNum = Random.Range(-10.0f, 10.0f);
-		if (rndNum >= 5f)
+		if (DropItems)
 		{
-			GameObject diamondNew = Instantiate(diamond, transform.position, transform.rotation, transform.parent);
-		}
-		else
-		{
-			GameObject coinNew = Instantiate(coin, transform.position, transform.rotation, transform.parent);
+			float rndNum = Random.Range(-10.0f, 10.0f);
+			if (rndNum >= 5f)
+			{
+				GameObject diamondNew = Instantiate(diamond, transform.position, transform.rotation, transform.parent);
+			}
+			else
+			{
+				GameObject coinNew = Instantiate(coin, transform.position, transform.rotation, transform.parent);
+			}
 		}
 		Destroy(this.gameObject);
 	}

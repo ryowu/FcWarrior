@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8267507858258757309}
   - component: {fileID: 8267507858258757298}
   - component: {fileID: 8352121594345468164}
-  - component: {fileID: 3453736746692609309}
   - component: {fileID: 7506931116602391929}
+  - component: {fileID: 4856279984611679321}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Bullet
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 1848868359
   m_SortingLayer: -1
   m_SortingOrder: -1
-  m_Sprite: {fileID: -2346302928887187388, guid: a96985aba0d896144978635af57f5abf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 300dd8e3eba0e0f4a996acadcbf81026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,20 +98,34 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019947529, y: -0.0478729}
+  m_Offset: {x: 0.004254818, y: -0.008639514}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
+    oldSize: {x: 5.625, y: 3.75}
     newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.257967, y: 2.122329}
+  m_Size: {x: 4.549179, y: 2.6715932}
   m_EdgeRadius: 0
---- !u!50 &3453736746692609309
+--- !u!114 &7506931116602391929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267507858258757299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c72e2183a9aad1498b7b2171109ab76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPostion: {x: 0, y: 0, z: 0}
+  MovingSpeed: 0
+--- !u!50 &4856279984611679321
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -131,16 +145,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
---- !u!114 &7506931116602391929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8267507858258757299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c72e2183a9aad1498b7b2171109ab76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Constraints: 4

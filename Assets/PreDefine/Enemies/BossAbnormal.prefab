@@ -8,15 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6632669092108970299}
+  - component: {fileID: 5777382842064089122}
   - component: {fileID: 6632669092108970298}
   - component: {fileID: 6632669092108970296}
   - component: {fileID: 6632669092108970303}
-  - component: {fileID: 4992387711988784603}
-  - component: {fileID: 8451446975743302516}
   - component: {fileID: 8643946118485278396}
   - component: {fileID: 6302387386468405379}
   - component: {fileID: 2731333182197655447}
+  - component: {fileID: 1695197441664494769}
   m_Layer: 0
   m_Name: BossAbnormal
   m_TagString: Enemy
@@ -24,20 +23,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6632669092108970299
-Transform:
+--- !u!224 &5777382842064089122
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6632669092108970302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.71, y: -1.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5.83, y: 1.02}
+  m_SizeDelta: {x: 2, y: 2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &6632669092108970298
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,39 +138,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4992387711988784603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632669092108970302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edbe20d295a1571469730b2b7d72f46e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wayPoints: []
-  movingSpeed: 2
-  IsFlip: 0
---- !u!114 &8451446975743302516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632669092108970302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24613a024fdcb604ca1009177824cd0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dieSoundEffect: {fileID: 8643946118485278396}
-  hitSoundEffect: {fileID: 6302387386468405379}
-  diamond: {fileID: 3399550746941487942, guid: fda7c03590df1da44a368602e6f85b2c, type: 3}
-  coin: {fileID: 2185596488343396936, guid: f7fa5da12e137324794bdb7fdb4fd66a, type: 3}
-  HealthPower: 10
-  IsAlive: 0
 --- !u!82 &8643946118485278396
 AudioSource:
   m_ObjectHideFlags: 0
@@ -371,6 +342,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8566fe7d7abf418857602466f4fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHP: 10
-  EnemyATK: 2
+  EnemyHP: 300
+  EnemyATK: 3
   EnemyDEF: 0
+--- !u!114 &1695197441664494769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632669092108970302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d47633b3030dc4469790c66c9795bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dieSoundEffect: {fileID: 8643946118485278396}
+  hitSoundEffect: {fileID: 6302387386468405379}
+  diamond: {fileID: 0}
+  coin: {fileID: 0}
+  DropItems: 1
+  IsAlive: 0
+  healthyBar: {fileID: 0}

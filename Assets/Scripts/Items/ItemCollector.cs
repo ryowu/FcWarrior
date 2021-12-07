@@ -20,7 +20,7 @@ public class ItemCollector : MonoBehaviour
 			collectSoundEffect.Play();
 
 			Destroy(collision.gameObject);
-			itemText.text = string.Format("Diamond:{0}", coinCount);
+			itemText.text = string.Format("{0}", coinCount);
 		}
 	}
 

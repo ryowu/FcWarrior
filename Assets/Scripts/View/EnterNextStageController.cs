@@ -18,7 +18,7 @@ public class EnterNextStageController : MonoBehaviour
 		if (collision.CompareTag("Player"))
 		{
 			GlobalVars.IsPlayerControllable = false;
-
+			collision.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 			anim = FadeinoutImage.GetComponent<Animator>();
 			FadeinoutImage.enabled = true;
 			triggerStarted = true;
