@@ -7,6 +7,12 @@ public class EnemyBossAbnormalAI : PatrolBase
 {
 	[SerializeField] private GameObject player;
 	[SerializeField] private bool IsFlip;
+
+	[SerializeField] private GameObject fireballHorizon;
+	[SerializeField] private GameObject fireballRound;
+
+	[SerializeField] private AudioSource fireballHorizonEffect;
+
 	private Animator anim;
 	private SpriteRenderer sprite;
 	private Vector3 targetPos;
@@ -30,7 +36,6 @@ public class EnemyBossAbnormalAI : PatrolBase
 
 	protected override void OnPatroling(Vector3 vFrom, Vector3 vTo)
 	{
-
 		if (vFrom.x <= vTo.x)
 		{
 			bossState = BossState.Running;
@@ -48,11 +53,11 @@ public class EnemyBossAbnormalAI : PatrolBase
 
 		//if (rb.velocity.y > .1f)
 		//{
-		//	state = MovementState.jumping;
+		//	bossState = BossState.Jump;
 		//}
 		//else if (rb.velocity.y < -.1f)
 		//{
-		//	state = MovementState.falling;
+		//	bossState = BossState.Fall;
 		//}
 
 		anim.SetInteger("state", (int)bossState);
@@ -60,6 +65,31 @@ public class EnemyBossAbnormalAI : PatrolBase
 
 	protected override bool BeforePatroling()
 	{
-		return base.BeforePatroling();
+		return GlobalVars.BossAbnormalSequenceEvent.StartAI;
+	}
+
+	protected override void OnPatrolPointArrived(Vector3 pos)
+	{
+		//trun around, face to player
+		if (player.transform.position.x < transform.position.x)
+		{
+			sprite.flipX = true;
+		}
+		else
+			sprite.flipX = false;
+
+		bossState = BossState.Idle;
+		anim.SetInteger("state", (int)bossState);
+
+		//boss shoot one horizon fireball
+		GameObject bulletNew = Instantiate(fireballHorizon, transform.position, transform.rotation, transform.parent);
+		bulletNew.GetComponent<SpriteRenderer>().flipX = !sprite.flipX;
+		BossFireballHorizon fh = bulletNew.GetComponent<BossFireballHorizon>();
+		fh.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
+		fh.MovingSpeed = 20f;
+		fireballHorizonEffect.Play();
+
+		WaitTime = 2000;
+		startWait = true;
 	}
 }

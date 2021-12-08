@@ -36,7 +36,7 @@ public class PlayerLife : MonoBehaviour
 		if (isHit)
 		{
 			TimeSpan ts = DateTime.Now - hitStartTime;
-			if (ts.TotalMilliseconds > 300f)
+			if (ts.TotalMilliseconds > 800f)
 			{
 				GlobalVars.IsPlayerControllable = true;
 			}
@@ -101,7 +101,11 @@ public class PlayerLife : MonoBehaviour
 
 	private void RestartLevel()
 	{
-		playerBody.bodyType = RigidbodyType2D.Dynamic;
+		if (SceneManager.GetActiveScene().buildIndex == 7)
+		{
+			GlobalVars.BossAbnormalSequenceEvent.StartAI = false;
+		}
+
 		anim.SetInteger("state", 0);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}

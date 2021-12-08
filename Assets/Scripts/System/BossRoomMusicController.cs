@@ -11,9 +11,13 @@ public class BossRoomMusicController : MonoBehaviour
 	float deltaVolume;
 
 	private bool isPlayingBossMusic;
+
+
 	// Start is called before the first frame update
 	void Start()
 	{
+		GlobalVars.BossAbnormalSequenceEvent.DisableOriginalBGM = true;
+
 		isPlayingBossMusic = false;
 		//GlobalVars.IsPlayerControllable = false;
 		originalMusic = GameObject.FindGameObjectWithTag("bgmusic");
@@ -21,10 +25,11 @@ public class BossRoomMusicController : MonoBehaviour
 			audioBGMusic = originalMusic.GetComponent<AudioSource>();
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		if (isPlayingBossMusic || audioBGMusic == null) return;
+
+		if (!GlobalVars.BossAbnormalSequenceEvent.DisableOriginalBGM) return;
 
 		deltaVolume = 0.2f * Time.deltaTime;
 		if (audioBGMusic.volume - deltaVolume > 0.01f)
@@ -32,9 +37,11 @@ public class BossRoomMusicController : MonoBehaviour
 		else
 		{
 			isPlayingBossMusic = true;
-			GlobalVars.IsPlayerControllable = true;
 			audioBGMusic.Stop();
-			bossMusic.Play();
-		}
+			//Destroy(originalMusic);
+
+			GlobalVars.BossAbnormalSequenceEvent.DisableOriginalBGM = false;
+			GlobalVars.BossAbnormalSequenceEvent.PlayWarning = true;
+}
 	}
 }

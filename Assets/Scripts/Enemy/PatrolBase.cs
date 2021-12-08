@@ -8,14 +8,36 @@ public class PatrolBase : MonoBehaviour
 	private int currentWaypointIndex = 0;
 	[SerializeField] float movingSpeed = 2f;
 
+	protected int WaitTime;
+	private DateTime startWaitTime;
+	protected bool startWait = false;
 
 	// Update is called once per frame
 	void Update()
 	{
 		if (!BeforePatroling()) return;
 
+		if (startWait)
+		{
+			TimeSpan ts = DateTime.Now - startWaitTime;
+			if (ts.TotalMilliseconds > WaitTime)
+			{
+				startWait = false;
+			}
+			else
+			{
+				return;
+			}
+		}
+		else
+		{
+			startWaitTime = DateTime.Now;
+		}
+
 		if (Vector2.Distance(wayPoints[currentWaypointIndex].transform.position, transform.position) < 0.1f)
 		{
+			OnPatrolPointArrived(wayPoints[currentWaypointIndex].transform.position);
+
 			currentWaypointIndex++;
 
 			if (currentWaypointIndex >= wayPoints.Length)
@@ -34,5 +56,10 @@ public class PatrolBase : MonoBehaviour
 	protected virtual bool BeforePatroling()
 	{
 		return true;
+	}
+
+	protected virtual void OnPatrolPointArrived(Vector3 pos)
+	{
+
 	}
 }

@@ -53,14 +53,17 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\System\SequenceEventBase.cs" />
     <Compile Include="Assets\Scripts\Items\ItemCollector.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBossLife.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySkullController.cs" />
     <Compile Include="Assets\Scripts\Enemy\PatrolBase.cs" />
     <Compile Include="Assets\Scripts\View\HealthyBarController.cs" />
     <Compile Include="Assets\Scripts\View\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyBossAbnormalAI.cs" />
     <Compile Include="Assets\Scripts\View\FadeoutControllerChooseStage.cs" />
     <Compile Include="Assets\Scripts\Platform\PlatformPatrol.cs" />
+    <Compile Include="Assets\Scripts\System\PlayBossMusic.cs" />
     <Compile Include="Assets\Scripts\Platform\StickToPlatform.cs" />
     <Compile Include="Assets\Scripts\View\EnterBossRoomController.cs" />
     <Compile Include="Assets\Scripts\Player\FireballMoving.cs" />
@@ -73,25 +76,31 @@
     <Compile Include="Assets\Scripts\Player\CheckPointController.cs" />
     <Compile Include="Assets\Scripts\Enemy\TrunkBulletController.cs" />
     <Compile Include="Assets\Scripts\View\CheckPointStation.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossFireballHorizon.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyTrunkController.cs" />
     <Compile Include="Assets\Scripts\Enemy\SkullBulletController.cs" />
     <Compile Include="Assets\Scripts\View\InfoLabelController.cs" />
+    <Compile Include="Assets\Scripts\System\WarningController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossFireballRound.cs" />
     <Compile Include="Assets\Scripts\Items\CollectableItemController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\StageClear.cs" />
     <Compile Include="Assets\Scripts\System\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyData.cs" />
     <Compile Include="Assets\Scripts\System\BossRoomMusicController.cs" />
+    <Compile Include="Assets\Scripts\System\SequenceEventManager.cs" />
     <Compile Include="Assets\Scripts\View\FadeInController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRoutineAction.cs" />
     <Compile Include="Assets\Scripts\View\EnterZoneController.cs" />
     <Compile Include="Assets\Scripts\Platform\JumpThroughPlatformController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMonitor.cs" />
+    <Compile Include="Assets\Scripts\System\MenuController.cs" />
     <Compile Include="Assets\Scripts\FadeOutController.cs" />
     <Compile Include="Assets\Scripts\Enemy\MonitorPointController.cs" />
     <Compile Include="Assets\Scripts\View\EnterNextStageController.cs" />
-    <Compile Include="Assets\Scripts\Enemy\EnemyBossAbnormalAI.cs" />
-    <Compile Include="Assets\Scripts\System\MenuController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyBossAbnormalShowup.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossAboriginalHPShowup.cs" />
+    <Compile Include="Assets\Scripts\System\StageClearController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />

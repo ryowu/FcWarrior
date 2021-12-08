@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] private float moveSpeed = 7f;
 	[SerializeField] private float jumpForce = 14f;
-	[SerializeField] private int bulletGapTime = 500;
-	private DateTime bulletStartShootTime;
-	[SerializeField] private int bulletMaxCount = 3;
-	private int bulletCurrentCount;
+	//[SerializeField] private int bulletGapTime = 500;
+	//private DateTime bulletStartShootTime;
+	//[SerializeField] private int bulletMaxCount = 3;
+	//private int bulletCurrentCount;
 	[SerializeField] private float bulletSpeed = 20f;
 
 	private enum MovementState { idle, running, jumping, falling, doubleJump, hit }
@@ -46,8 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
 		jumpPhase = 0;
 
-		bulletStartShootTime = DateTime.Now;
-		bulletCurrentCount = 0;
+		//bulletStartShootTime = DateTime.Now;
+		//bulletCurrentCount = 0;
 	}
 
 	// Update is called once per frame

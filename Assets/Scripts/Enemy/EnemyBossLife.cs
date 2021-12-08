@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyBossLife : EnemyLife
 {
     private int hp;
-    [SerializeField] private HealthyBarController healthyBar;
+    [SerializeField] public HealthyBarController healthyBar;
 
     protected override void InnerStart()
     {
         base.InnerStart();
-        hp = 300;
-        healthyBar.SetHPMaxValue(hp);
+        hp = 0;
+        healthyBar.SetHPMaxValue(300);
         healthyBar.SetHPValue(hp);
     }
 
@@ -19,5 +19,10 @@ public class EnemyBossLife : EnemyLife
     {
         base.RefreshHPBar();
         healthyBar.SetHPValue(eData.EnemyHP);
+    }
+
+    protected override void OnEnemyDie()
+    {
+        GlobalVars.BossAbnormalSequenceEvent.StopBossBGM = true;
     }
 }

@@ -60,6 +60,8 @@ public class EnemyLife : MonoBehaviour
 
 	protected virtual void RefreshHPBar() { }
 
+	protected virtual void OnEnemyDie() { }
+
 	private void EnemyDie()
 	{
 		dieSoundEffect.Play();
@@ -81,6 +83,7 @@ public class EnemyLife : MonoBehaviour
 				GameObject coinNew = Instantiate(coin, transform.position, transform.rotation, transform.parent);
 			}
 		}
+		OnEnemyDie();
 		Destroy(this.gameObject);
 	}
 }
