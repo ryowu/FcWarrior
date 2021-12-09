@@ -179,10 +179,10 @@ public class PlayerMovement : MonoBehaviour
 	private bool IsJumpThroughGrounded()
 	{
 		bool result = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpThroughGround);
-		//if (result)
-		//{
-		//	jumpPhase = 0;
-		//}
+		if (result)
+		{
+			jumpPhase = 0;
+		}
 		return result;
 	}
 }

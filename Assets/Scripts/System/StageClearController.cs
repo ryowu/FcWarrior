@@ -26,8 +26,13 @@ public class StageClearController : MonoBehaviour
 		if (startWait)
 		{
 			TimeSpan ts = DateTime.Now - startTime;
-			if (ts.TotalSeconds > 3 && !isAnimating)
+			if (ts.TotalSeconds > 2 && !isAnimating)
 			{
+				//dispose original bgm object
+				GameObject bgmobject = GameObject.FindGameObjectWithTag("bgmusic");
+				if (bgmobject != null)
+					Destroy(bgmobject);
+
 				anim = FadeinoutImage.GetComponent<Animator>();
 				FadeinoutImage.enabled = true;
 				isAnimating = true;

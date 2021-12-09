@@ -9,18 +9,21 @@ public class CameraController : MonoBehaviour
 	public float boundYTop = 35.1f;
 	public float boundYBottom = 2.2f;
 
+	public float xOffset = 0f;
+	public float yOffset = 0f;
+
 	private float posX;
 	private float posY;
 
-	private GameObject player;
-	[SerializeField] private Transform backgroundImage;
+	public GameObject followTarget;
 
 	private void Start()
 	{
 		posX = transform.position.x;
 		posY = transform.position.y;
 
-		player = GameObject.FindGameObjectWithTag("Player");
+		//Player is the default follow object
+		followTarget = GameObject.FindGameObjectWithTag("Player");
 		//UpdateCameraPosition();
 	}
 
@@ -38,23 +41,34 @@ public class CameraController : MonoBehaviour
 
 	private void UpdateCameraPosition()
 	{
-		if (player.transform.position.x > boundXLeft &&
-	player.transform.position.x < boundXRight)
-		{
-			posX = player.transform.position.x;
-		}
+		//	if (followTarget.transform.position.x > boundXLeft &&
+		//followTarget.transform.position.x < boundXRight)
+		//	{
+		//		posX = followTarget.transform.position.x;
+		//	}
 
-		if (player.transform.position.y > boundYBottom &&
-			player.transform.position.y < boundYTop)
-		{
-			posY = player.transform.position.y;
-		}
+		//	if (followTarget.transform.position.y > boundYBottom &&
+		//		followTarget.transform.position.y < boundYTop)
+		//	{
+		//		posY = followTarget.transform.position.y;
+		//	}
+
+		posX = followTarget.transform.position.x;
+		posY = followTarget.transform.position.y;
+
+		if (posX < boundXLeft)
+			posX = boundXLeft;
+		else if (posX > boundXRight)
+			posX = boundXRight;
+
+		if (posY > boundYTop)
+			posY = boundYTop;
+		else if (posY < boundYBottom)
+			posY = boundYBottom;
 
 		if (GlobalVars.IsCameraFollowing)
 		{
-			transform.position = new Vector3(posX, posY, transform.position.z);
+			transform.position = new Vector3(posX + xOffset, posY + yOffset, transform.position.z);
 		}
-
-		backgroundImage.position = new Vector3(transform.position.x, transform.position.y, 0f);
 	}
 }

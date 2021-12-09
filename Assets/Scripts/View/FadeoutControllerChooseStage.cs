@@ -88,7 +88,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				}
 			case 3:
 				{
-					posX = 6.1f;
+					posX = 5.89f;
 					posY = 0f;
 					break;
 				}
@@ -119,7 +119,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 
 	IEnumerator LoadStageScene()
 	{
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stage);
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(GetBuildIndex(stage));
 
 		// Wait until the asynchronous scene fully loads
 		while (!asyncLoad.isDone)
@@ -131,6 +131,26 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 	public void OnFadeOutComplete()
 	{
 		StartCoroutine(LoadStageScene());
+	}
+
+	private int GetBuildIndex(int stage)
+	{
+		int result = 2;
+		switch (stage)
+		{
+			case 2:
+				{
+					result = 2;
+					break;
+				}
+			case 3:
+				{
+					result = 8;
+					break;
+				}
+		}
+
+		return result;
 	}
 
 }

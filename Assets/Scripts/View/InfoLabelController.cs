@@ -7,6 +7,7 @@ public class InfoLabelController : MonoBehaviour
 	[SerializeField] private Text lblInfo;
 	[SerializeField] private Image imgInfo;
 	[SerializeField] private string InfoText;
+	[SerializeField] private Camera camera;
 
 	private bool startFadeOut;
 	private float alpha;
@@ -41,8 +42,9 @@ public class InfoLabelController : MonoBehaviour
 	{
 		if (!collision.gameObject.CompareTag("Player")) return;
 
-		ResetUI();
-		
+		//ResetUI();
+		info.transform.position = camera.WorldToScreenPoint(transform.position + new Vector3(0f, 2.2f, 0f)); ;
+
 		lblInfo.text = InfoText;
 		info.SetActive(true);
 	}
@@ -50,7 +52,8 @@ public class InfoLabelController : MonoBehaviour
 	private void OnTriggerExit2D(Collider2D collision)
 	{
 		if (!collision.gameObject.CompareTag("Player")) return;
-		startFadeOut = true;
+		//startFadeOut = true;
+		info.SetActive(false);
 	}
 
 	private void ResetUI()
