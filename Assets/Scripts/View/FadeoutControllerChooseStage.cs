@@ -88,13 +88,13 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				}
 			case 3:
 				{
-					posX = 5.89f;
+					posX = 5.74f;
 					posY = 0f;
 					break;
 				}
 			case 4:
 				{
-					posX = 11.94f;
+					posX = 11.46f;
 					posY = 0f;
 					break;
 				}
@@ -146,6 +146,11 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 			case 3:
 				{
 					result = 8;
+					break;
+				}
+			case 4:
+				{
+					result = 12;
 					break;
 				}
 		}
