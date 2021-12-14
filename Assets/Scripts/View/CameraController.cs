@@ -71,10 +71,10 @@ public class CameraController : MonoBehaviour
 		if (GlobalVars.IsCameraFollowing)
 		{
 			Vector3 newPos = new Vector3(posX + xOffset, posY + yOffset, transform.position.z);
-			if (UseNaturalFollowing)
+			//if (UseNaturalFollowing)
 				transform.position = newPos;
-			else
-				transform.position = Vector3.MoveTowards(transform.position, newPos, 8f * Time.deltaTime);
+			//else
+			//	transform.position = Vector3.MoveTowards(transform.position, newPos, 8f * Time.deltaTime);
 		}
 	}
 }

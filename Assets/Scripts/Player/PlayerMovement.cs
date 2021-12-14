@@ -78,28 +78,28 @@ public class PlayerMovement : MonoBehaviour
 
 		dirY = Input.GetAxisRaw("Vertical");
 
+		//Jump through platform ignore
 		if (dirY < 0 && (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K)))
 		{
 			//if down+jump from a jumpThroughPlatform, then ignore the jump action
 			if (IsJumpThroughGrounded())
 			{
-				//Debug.Log("down+jump in player action");
 				return;
 			}
 		}
 
-		if ((Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K)) && (IsGrounded() || jumpPhase == 1 || IsJumpThroughGrounded()))
-		{
-			jumpSoundEffect.Play();
-			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+		//touch the ground
+		if (IsGrounded() || IsJumpThroughGrounded())
+			jumpPhase = 0;
 
-			if (jumpPhase == 0)
+		//Jump
+		if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K))
+		{
+			if (jumpPhase == 0 || jumpPhase == 1)
 			{
-				jumpPhase = 1;
-			}
-			else if (jumpPhase == 1)
-			{
-				jumpPhase = 2;
+				jumpSoundEffect.Play();
+				rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+				jumpPhase++;
 			}
 		}
 
@@ -198,21 +198,11 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool IsGrounded()
 	{
-		bool result = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
-		if (result)
-		{
-			jumpPhase = 0;
-		}
-		return result;
+		return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
 	}
 
 	private bool IsJumpThroughGrounded()
 	{
-		bool result = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpThroughGround);
-		if (result)
-		{
-			jumpPhase = 0;
-		}
-		return result;
+		return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpThroughGround);
 	}
 }
