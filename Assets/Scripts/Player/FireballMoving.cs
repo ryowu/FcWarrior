@@ -6,15 +6,19 @@ public class FireballMoving : MonoBehaviour
 {
 	public Vector3 TargetPostion;
 	public float MovingSpeed;
+	private Renderer render;
 
 	void Start()
 	{
-
+		render = GetComponent<Renderer>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		//Destroy when out of camera
+		if (!render.isVisible) Destroy(this.gameObject);
+
 		if (Vector3.Distance(TargetPostion, transform.position) > 0.1f)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, TargetPostion, MovingSpeed * Time.deltaTime);

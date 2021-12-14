@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
 	private int jumpPhase;
 	MovementState state;
 
-	[SerializeField] private GameObject bulletPlayer;
+	[SerializeField] private GameObject PlayerBullet;
+	[SerializeField] private GameObject PlayerSword;
 
 	[SerializeField] private LayerMask jumpableGround;
 	[SerializeField] private LayerMask jumpThroughGround;
@@ -32,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] private AudioSource jumpSoundEffect;
 	[SerializeField] private AudioSource shootEffect;
+	[SerializeField] private AudioSource swordEffect;
+
+	DateTime swordStartTime;
+	[SerializeField] private int swordCooldownTime = 200;
 
 	// Start is called before the first frame update
 	private void Start()
@@ -48,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
 		//bulletStartShootTime = DateTime.Now;
 		//bulletCurrentCount = 0;
+		swordStartTime = DateTime.Now;
 	}
 
 	// Update is called once per frame
@@ -97,7 +103,31 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
+		//Sword
 		if (Input.GetButtonDown("Fire1"))
+		{
+			TimeSpan ts = DateTime.Now - swordStartTime;
+
+			if (ts.TotalMilliseconds > swordCooldownTime)
+			{
+				Vector3 pos;
+				if (!sprite.flipX)
+					pos = new Vector3(transform.position.x + 2.32f, transform.position.y - 0.13f, transform.position.z);
+				else
+					pos = new Vector3(transform.position.x - 2.32f, transform.position.y - 0.13f, transform.position.z);
+
+				GameObject swordNew = Instantiate(PlayerSword, pos, transform.rotation, transform);
+				SpriteRenderer sr = swordNew.GetComponent<SpriteRenderer>();
+				sr.flipX = sprite.flipX;
+				swordEffect.Play();
+
+				swordStartTime = DateTime.Now;
+			}
+		}
+
+
+		//Bullet
+		if (Input.GetButtonDown("Jump"))
 		{
 			//if (bulletCurrentCount >= bulletMaxCount)
 			//{
@@ -121,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
 			//	shootEffect.Play();
 			//}
 
-			GameObject bulletNew = Instantiate(bulletPlayer, transform.position, transform.rotation, transform.parent);
+			GameObject bulletNew = Instantiate(PlayerBullet, transform.position, transform.rotation, transform.parent);
 			FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
 			fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
 			fb.MovingSpeed = bulletSpeed;

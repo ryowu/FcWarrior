@@ -14,20 +14,25 @@ public class PlayerLife : MonoBehaviour
 	bool isHit = false;
 	DateTime hitStartTime;
 
+	private SpriteRenderer rd;
+
 	[SerializeField] private AudioSource dieSoundEffect;
 	[SerializeField] private AudioSource hitSoundEffect;
-
-
 	[SerializeField] private HealthyBarController healthyBar;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		hp = 10;
-		healthyBar.SetHPMaxValue(hp);
+		if (SceneManager.GetActiveScene().name == "Stage1_1" || SceneManager.GetActiveScene().name == "Stage2_1" ||
+			SceneManager.GetActiveScene().name == "Stage3_1" || SceneManager.GetActiveScene().name == "Stage_Newbie")
+			PlayerData.ResetPlayer();
+
+		hp = PlayerData.PlayerHP;
+		healthyBar.SetHPMaxValue(PlayerData.PlayerMaxHP);
 		healthyBar.SetHPValue(hp);
 		anim = GetComponent<Animator>();
 		playerBody = GetComponent<Rigidbody2D>();
+		rd = GetComponent<SpriteRenderer>();
 		hitStartTime = DateTime.Now;
 	}
 
@@ -36,10 +41,66 @@ public class PlayerLife : MonoBehaviour
 		if (isHit)
 		{
 			TimeSpan ts = DateTime.Now - hitStartTime;
-			if (ts.TotalMilliseconds > 800f)
+			if (ts.TotalMilliseconds > 2000f)
 			{
-				GlobalVars.IsPlayerControllable = true;
+				//GlobalVars.IsPlayerControllable = true;
+				rd.color = new Color(255f, 255f, 255f, 1f);
+				isHit = false;
 			}
+		}
+	}
+
+
+	private void OnEnemyCollide(Collision2D collision)
+	{
+		TimeSpan ts = DateTime.Now - hitStartTime;
+		if (ts.TotalMilliseconds > 2000f)
+		{
+			hitSoundEffect.Play();
+
+			//refresh hp bar
+			EnemyData eData = collision.gameObject.GetComponent<EnemyData>();
+			hp -= eData.EnemyATK;
+
+			healthyBar.SetHPValue(hp);
+			if (hp <= 0)
+			{
+				PlayerDie();
+				return;
+			}
+
+			//save to global
+			PlayerData.PlayerHP = hp;
+
+			//destroy enemy bullet
+			if (collision.gameObject.CompareTag("EnemyBullet"))
+			{
+				Destroy(collision.gameObject);
+			}
+
+			//GlobalVars.IsPlayerControllable = false;
+			isHit = true;
+			hitStartTime = DateTime.Now;
+			//Player Hit
+			rd.color = new Color(255f, 255f, 255f, 0.5f);
+			//anim.SetInteger("state", 5);
+			//anim.SetTrigger("hit");
+
+
+			float vx = playerBody.velocity.x * -1f;
+			if (playerBody.velocity.y > 0)
+				playerBody.velocity = new Vector2(vx, 0f);
+			else
+				playerBody.velocity = new Vector2(vx, playerBody.velocity.y);
+
+		}
+	}
+
+	private void OnCollisionStay2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
+		{
+			OnEnemyCollide(collision);
 		}
 	}
 
@@ -49,51 +110,18 @@ public class PlayerLife : MonoBehaviour
 		{
 			PlayerDie();
 		}
-		else if(collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
+		else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
 		{
-			TimeSpan ts = DateTime.Now - hitStartTime;
-			if (ts.TotalMilliseconds > 300f)
-			{
-				hitSoundEffect.Play();
-
-				//refresh hp bar
-				EnemyData eData = collision.gameObject.GetComponent<EnemyData>();
-				hp -= eData.EnemyATK;
-				healthyBar.SetHPValue(hp);
-				if (hp <= 0)
-				{
-					PlayerDie();
-					return;
-				}
-
-				//destroy enemy bullet
-				if (collision.gameObject.CompareTag("EnemyBullet"))
-				{
-					Destroy(collision.gameObject);
-				}
-
-				GlobalVars.IsPlayerControllable = false;
-				isHit = true;
-				hitStartTime = DateTime.Now;
-				//Player Hit
-				anim.SetInteger("state", 5);
-
-				anim.SetTrigger("hit");
-
-				
-				float vx = playerBody.velocity.x * -1f;
-				if (playerBody.velocity.y > 0)
-					playerBody.velocity = new Vector2(vx, 0f);
-				else
-					playerBody.velocity = new Vector2(vx, playerBody.velocity.y);
-
-			}
+			OnEnemyCollide(collision);
 		}
 	}
 
 	private void PlayerDie()
 	{
 		GlobalVars.IsPlayerControllable = false;
+
+		PlayerData.ResetPlayer();
+
 		dieSoundEffect.Play();
 		anim.SetTrigger("death");
 		playerBody.bodyType = RigidbodyType2D.Static;

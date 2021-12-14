@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Platform\FlashSquareManager.cs" />
     <Compile Include="Assets\Scripts\System\SequenceEventBase.cs" />
     <Compile Include="Assets\Scripts\Items\ItemCollector.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBossLife.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\Enemy\SkullBulletController.cs" />
     <Compile Include="Assets\Scripts\View\InfoLabelController.cs" />
     <Compile Include="Assets\Scripts\System\WarningController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerSwordController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossFireballRound.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAboriginalHPShowup.cs" />
     <Compile Include="Assets\Scripts\Items\CollectableItemController.cs" />
@@ -105,7 +107,7 @@
     <Compile Include="Assets\Scripts\View\EnterNextStageController.cs" />
     <Compile Include="Assets\Scripts\Platform\ResetCameraOffset.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBossAbnormalShowup.cs" />
-    <Compile Include="Assets\Scripts\Platform\FlashSquareManager.cs" />
+    <Compile Include="Assets\Scripts\Player\RecoverHpEffectController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />

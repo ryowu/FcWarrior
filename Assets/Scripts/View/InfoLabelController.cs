@@ -7,7 +7,7 @@ public class InfoLabelController : MonoBehaviour
 	[SerializeField] private Text lblInfo;
 	[SerializeField] private Image imgInfo;
 	[SerializeField] private string InfoText;
-	[SerializeField] private Camera camera;
+	[SerializeField] private Camera cameraMain;
 
 	private bool startFadeOut;
 	private float alpha;
@@ -43,7 +43,7 @@ public class InfoLabelController : MonoBehaviour
 		if (!collision.gameObject.CompareTag("Player")) return;
 
 		//ResetUI();
-		info.transform.position = camera.WorldToScreenPoint(transform.position + new Vector3(0f, 2.2f, 0f)); ;
+		info.transform.position = cameraMain.WorldToScreenPoint(transform.position + new Vector3(0f, 2.2f, 0f)); ;
 
 		lblInfo.text = InfoText;
 		info.SetActive(true);

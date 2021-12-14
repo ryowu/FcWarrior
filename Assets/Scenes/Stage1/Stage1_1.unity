@@ -6400,6 +6400,9 @@ MonoBehaviour:
   boundXRight: 72.52
   boundYTop: 2.2
   boundYBottom: 2.2
+  xOffset: 0
+  yOffset: 0
+  followTarget: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -9575,6 +9578,10 @@ PrefabInstance:
       propertyPath: cherryText
       value: 
       objectReference: {fileID: 204385307}
+    - target: {fileID: 4621078170497656971, guid: 3da2d77579dd27d40abc78def6708f4a, type: 3}
+      propertyPath: healthyBar
+      value: 
+      objectReference: {fileID: 2062255068}
     - target: {fileID: 4621078170497656973, guid: 3da2d77579dd27d40abc78def6708f4a, type: 3}
       propertyPath: jumpThroughGround.m_Bits
       value: 128
@@ -9773,6 +9780,10 @@ PrefabInstance:
       propertyPath: lblInfo
       value: 
       objectReference: {fileID: 363634295}
+    - target: {fileID: 8415742725608640545, guid: c5a33307f027bb44186071144d209cfc, type: 3}
+      propertyPath: cameraMain
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 8415742725608640551, guid: c5a33307f027bb44186071144d209cfc, type: 3}
       propertyPath: m_Name
       value: Info1

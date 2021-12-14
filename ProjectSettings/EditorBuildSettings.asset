@@ -42,9 +42,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage2/Stage2_4.unity
     guid: 85dbfdccc246df94ea161ed93bedbca9
   - enabled: 1
+    path: Assets/Scenes/Stage2/Stage2_Boss.unity
+    guid: d86605f2bdf528e489db280f692f2697
+  - enabled: 1
     path: Assets/Scenes/Stage3/Stage3_1.unity
     guid: d6fc51c639c3663478fb5bc223e370e6
   - enabled: 1
     path: Assets/Scenes/Stage3/Stage3_2.unity
     guid: 78162badcc693db43bacfcb8da18698a
+  - enabled: 1
+    path: Assets/Scenes/Stage3/Stage3_3.unity
+    guid: 37ac39539f072854e81f8721f576af19
+  - enabled: 1
+    path: Assets/Scenes/Stage3/Stage3_Boss.unity
+    guid: 2bb51f75bf4b61546a41fe5f8abc02d8
   m_configObjects: {}

@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FadeoutControllerChooseStage : MonoBehaviour
 {
 	[SerializeField] private AudioSource stageSelectEffect;
 	[SerializeField] private AudioSource enterStageEffect;
 	[SerializeField] private GameObject stageSelectBorder;
+	[SerializeField] private Text LoadingLabel;
+	[SerializeField] private Text stageName;
 	private Animator anim;
 
 	float dirX, dirY;
 	float posX, posY;
 	int originalStage;
 	int stage;
+	int maxStage;
 	DateTime lastInputTime;
 
 	private bool acceptInput;
@@ -23,7 +27,10 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 	void Start()
 	{
 		Cursor.visible = false;
+		LoadingLabel.enabled = false;
+
 		stage = 2;
+		maxStage = 5;
 		lastInputTime = DateTime.Now;
 
 		anim = GetComponent<Animator>();
@@ -54,28 +61,31 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				stage++;
 
 			if (stage < 2)
-				stage = 6;
-			else if (stage > 6)
+				stage = maxStage - 1;
+			else if (stage > maxStage - 1)
 				stage = 2;
 
 			if (originalStage != stage)
 			{
 				lastInputTime = DateTime.Now;
-				SetStageBorder();
+				SetStageBorderAndName();
+				
 			}
 
 			if (Input.GetButtonDown("Fire2"))
 			{
+				stageName.enabled = false;
 				acceptInput = false;
 				enterStageEffect.Play();
 				anim.SetTrigger("fadeout"); // this animation event will load the scene
+				LoadingLabel.enabled = true;
 			}
 		}
 
 
 	}
 
-	private void SetStageBorder()
+	private void SetStageBorderAndName()
 	{
 
 		switch (stage)
@@ -84,24 +94,28 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				{
 					posX = 0f;
 					posY = 0f;
+					stageName.text = "静溢森林";
 					break;
 				}
 			case 3:
 				{
 					posX = 5.74f;
 					posY = 0f;
+					stageName.text = "云中之城";
 					break;
 				}
 			case 4:
 				{
 					posX = 11.46f;
 					posY = 0f;
+					stageName.text = "废弃电厂";
 					break;
 				}
 			case 5:
 				{
 					posX = 2.74f;
 					posY = -4.81f;
+					stageName.text = "";
 					break;
 				}
 			case 6:
@@ -150,7 +164,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				}
 			case 4:
 				{
-					result = 12;
+					result = 13;
 					break;
 				}
 		}

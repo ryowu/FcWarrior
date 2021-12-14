@@ -14,6 +14,7 @@ public class PlayBossMusic : MonoBehaviour
 		{
 			GlobalVars.IsPlayerControllable = false;
 			bossBgm.Stop();
+			Destroy(this.gameObject);
 		}
 
 		if (!GlobalVars.BossAbnormalSequenceEvent.PlayBossBGM) return;

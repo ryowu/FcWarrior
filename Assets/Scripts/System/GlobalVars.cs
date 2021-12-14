@@ -21,3 +21,18 @@ public static class GlobalVars
 }
 
 
+public static class PlayerData
+{
+	public static int PlayerHP = 10;
+	public static int PlayerMaxHP = 10;
+	public static int PlayerDiamond = 0;
+
+	public static void ResetPlayer()
+	{
+		PlayerHP = 10;
+		PlayerMaxHP = 10;
+		PlayerDiamond = 0;
+	}
+}
+
+

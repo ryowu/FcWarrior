@@ -35,7 +35,7 @@ public class EnemyLife : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Bullet") && !isDieing)
+		if ((collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("PlayerSword")) && !isDieing)
 		{
 			eData.EnemyHP -= 6;
 
@@ -54,7 +54,8 @@ public class EnemyLife : MonoBehaviour
 			}
 
 			//Destroy bullet
-			Destroy(collision.gameObject);
+			if (collision.gameObject.CompareTag("Bullet"))
+				Destroy(collision.gameObject);
 		}
 	}
 

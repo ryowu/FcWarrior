@@ -6,15 +6,18 @@ using UnityEngine;
 public class FlashSquareManager : MonoBehaviour
 {
 	[SerializeField] private GameObject[] Squares;
+	[SerializeField] private AudioSource squareShowupEffect;
 	[SerializeField] private int Interval = 1000;
 
 	private DateTime startTime;
 	private int squareIndex = 0;
 	private int squareIndexLast;
+	private Renderer render;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		render = GetComponent<Renderer>();
 		startTime = DateTime.Now;
 
 		if (Squares.Length > 0)
@@ -41,6 +44,9 @@ public class FlashSquareManager : MonoBehaviour
 			Squares[squareIndexLast].SetActive(false);
 			//Enable the current one
 			Squares[squareIndex].SetActive(true);
+			//Sound effect
+			if (render.isVisible)
+				squareShowupEffect.Play();
 			//Remember last index
 			squareIndexLast = squareIndex;
 			//Move index to next

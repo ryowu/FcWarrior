@@ -33,10 +33,15 @@ public class StageClearController : MonoBehaviour
 				if (bgmobject != null)
 					Destroy(bgmobject);
 
+				GlobalVars.BossAbnormalSequenceEvent.StopBossBGM = false;
+				GlobalVars.BossAbnormalSequenceEvent.StartAI = false;
+
 				anim = FadeinoutImage.GetComponent<Animator>();
 				FadeinoutImage.enabled = true;
 				isAnimating = true;
 				anim.SetTrigger("fadeout");
+
+				Destroy(this.gameObject);
 			}
 		}
 		else

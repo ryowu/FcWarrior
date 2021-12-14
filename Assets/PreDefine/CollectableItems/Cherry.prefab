@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9052053567529617670}
   m_Layer: 0
   m_Name: Cherry
-  m_TagString: Cherry
+  m_TagString: dropItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   movingSpeed: 8
+  CanDisappear: 1
