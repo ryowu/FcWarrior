@@ -28,8 +28,11 @@ public class PlayerLife : MonoBehaviour
 			PlayerData.ResetPlayer();
 
 		hp = PlayerData.PlayerHP;
-		healthyBar.SetHPMaxValue(PlayerData.PlayerMaxHP);
-		healthyBar.SetHPValue(hp);
+		if (healthyBar != null)
+		{
+			healthyBar.SetHPMaxValue(PlayerData.PlayerMaxHP);
+			healthyBar.SetHPValue(hp);
+		}
 		anim = GetComponent<Animator>();
 		playerBody = GetComponent<Rigidbody2D>();
 		rd = GetComponent<SpriteRenderer>();
@@ -60,6 +63,8 @@ public class PlayerLife : MonoBehaviour
 
 			//refresh hp bar
 			EnemyData eData = collision.gameObject.GetComponent<EnemyData>();
+			//collide with rocks, does not hurt
+			if (eData.EnemyATK < 1) return;
 			hp -= eData.EnemyATK;
 
 			healthyBar.SetHPValue(hp);

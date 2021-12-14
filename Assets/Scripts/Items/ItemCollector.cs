@@ -47,7 +47,7 @@ public class ItemCollector : MonoBehaviour
 			}
 
 			Destroy(collision.gameObject);
-			
+
 		}
 	}
 
@@ -63,6 +63,7 @@ public class ItemCollector : MonoBehaviour
 
 	private void RefreshDiamondText()
 	{
-		itemText.text = string.Format("{0}", coinCount);
+		if (itemText != null)
+			itemText.text = string.Format("{0}", coinCount);
 	}
 }

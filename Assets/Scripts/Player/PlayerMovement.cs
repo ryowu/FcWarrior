@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
 		dirY = Input.GetAxisRaw("Vertical");
 
-		if (dirY < 0 && Input.GetButtonDown("Fire2"))
+		if (dirY < 0 && (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K)))
 		{
 			//if down+jump from a jumpThroughPlatform, then ignore the jump action
 			if (IsJumpThroughGrounded())
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		if (Input.GetButtonDown("Fire2") && (IsGrounded() || jumpPhase == 1 || IsJumpThroughGrounded()))
+		if ((Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K)) && (IsGrounded() || jumpPhase == 1 || IsJumpThroughGrounded()))
 		{
 			jumpSoundEffect.Play();
 			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		//Sword
-		if (Input.GetButtonDown("Fire1"))
+		if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
 		{
 			TimeSpan ts = DateTime.Now - swordStartTime;
 
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 		//Bullet
-		if (Input.GetButtonDown("Jump"))
+		if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.U))
 		{
 			//if (bulletCurrentCount >= bulletMaxCount)
 			//{

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+	[SerializeField] private bool UseNaturalFollowing = false;
+
 	public float boundXLeft = -0.49f;
 	public float boundXRight = 183.57f;
 	public float boundYTop = 35.1f;
@@ -68,7 +70,11 @@ public class CameraController : MonoBehaviour
 
 		if (GlobalVars.IsCameraFollowing)
 		{
-			transform.position = new Vector3(posX + xOffset, posY + yOffset, transform.position.z);
+			Vector3 newPos = new Vector3(posX + xOffset, posY + yOffset, transform.position.z);
+			if (UseNaturalFollowing)
+				transform.position = newPos;
+			else
+				transform.position = Vector3.MoveTowards(transform.position, newPos, 8f * Time.deltaTime);
 		}
 	}
 }

@@ -72,7 +72,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				
 			}
 
-			if (Input.GetButtonDown("Fire2"))
+			if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K))
 			{
 				stageName.enabled = false;
 				acceptInput = false;

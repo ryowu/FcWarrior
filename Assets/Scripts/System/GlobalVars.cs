@@ -26,6 +26,7 @@ public static class PlayerData
 	public static int PlayerHP = 10;
 	public static int PlayerMaxHP = 10;
 	public static int PlayerDiamond = 0;
+	public static bool RockGunEnabled = false;
 
 	public static void ResetPlayer()
 	{

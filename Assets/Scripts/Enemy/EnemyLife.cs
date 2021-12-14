@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
-	Animator anim;
+	protected Animator anim;
 	Rigidbody2D enemyBody;
-	BoxCollider2D enemyCollider;
-	bool isDieing = false;
+	protected BoxCollider2D enemyCollider;
+	protected bool isDieing = false;
 
 	[SerializeField] private AudioSource dieSoundEffect;
-	[SerializeField] private AudioSource hitSoundEffect;
+	[SerializeField] protected AudioSource hitSoundEffect;
 	[SerializeField] private GameObject diamond;
 	[SerializeField] private GameObject coin;
 	[SerializeField] private bool DropItems = true;
@@ -33,7 +33,7 @@ public class EnemyLife : MonoBehaviour
 	protected virtual void InnerStart()
 	{ }
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	protected virtual void OnTriggerEnter2D(Collider2D collision)
 	{
 		if ((collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("PlayerSword")) && !isDieing)
 		{
@@ -63,7 +63,7 @@ public class EnemyLife : MonoBehaviour
 
 	protected virtual void OnEnemyDie() { }
 
-	private void EnemyDie()
+	protected void EnemyDie()
 	{
 		dieSoundEffect.Play();
 		IsAlive = false;
