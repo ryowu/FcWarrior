@@ -43,7 +43,7 @@ public class InfoLabelController : MonoBehaviour
 		if (!collision.gameObject.CompareTag("Player")) return;
 
 		//ResetUI();
-		info.transform.position = cameraMain.WorldToScreenPoint(transform.position + new Vector3(0f, 2.2f, 0f)); ;
+		info.transform.position = cameraMain.WorldToScreenPoint(transform.position + new Vector3(0f, 2.2f, 0f));
 
 		lblInfo.text = InfoText;
 		info.SetActive(true);

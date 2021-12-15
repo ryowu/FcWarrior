@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private AudioSource swordEffect;
 
 	DateTime swordStartTime;
+	private float swordDistance = 1f;
 	[SerializeField] private int swordCooldownTime = 200;
 
 	// Start is called before the first frame update
@@ -61,9 +62,9 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (!GlobalVars.IsPlayerControllable)
 		{
-			rb.bodyType = RigidbodyType2D.Dynamic;
-			rb.velocity = new Vector2(0f, 0f);
-			rb.bodyType = RigidbodyType2D.Static;
+			//rb.bodyType = RigidbodyType2D.Dynamic;
+			//rb.velocity = new Vector2(0f, 0f);
+			//rb.bodyType = RigidbodyType2D.Static;
 			return;
 		}
 		else
@@ -88,14 +89,29 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		//touch the ground
+
 		if (IsGrounded() || IsJumpThroughGrounded())
+		{
 			jumpPhase = 0;
+		}
+
+		//cancel jump
+		if (Input.GetButtonUp("Fire2") || Input.GetKeyUp(KeyCode.K))
+		{
+			if (rb.velocity.y > 0f)
+				rb.velocity = new Vector2(rb.velocity.x, 0f);
+		}
 
 		//Jump
 		if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K))
 		{
-			if (jumpPhase == 0 || jumpPhase == 1)
+			if (IsGrounded() || IsJumpThroughGrounded())
+			{
+				jumpSoundEffect.Play();
+				rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+				jumpPhase = 0;
+			}
+			else if (jumpPhase == 0 && PlayerData.DoubleJumpEnabled)
 			{
 				jumpSoundEffect.Play();
 				rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -110,14 +126,22 @@ public class PlayerMovement : MonoBehaviour
 
 			if (ts.TotalMilliseconds > swordCooldownTime)
 			{
+				//sword distance
+				if (PlayerData.PowerSword)
+					swordDistance = 2f;
+
 				Vector3 pos;
 				if (!sprite.flipX)
-					pos = new Vector3(transform.position.x + 2.32f, transform.position.y - 0.13f, transform.position.z);
+					pos = new Vector3(transform.position.x + swordDistance, transform.position.y - 0.13f, transform.position.z);
 				else
-					pos = new Vector3(transform.position.x - 2.32f, transform.position.y - 0.13f, transform.position.z);
+					pos = new Vector3(transform.position.x - swordDistance, transform.position.y - 0.13f, transform.position.z);
 
 				GameObject swordNew = Instantiate(PlayerSword, pos, transform.rotation, transform);
 				SpriteRenderer sr = swordNew.GetComponent<SpriteRenderer>();
+
+				if (PlayerData.PowerSword)
+					swordNew.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
 				sr.flipX = sprite.flipX;
 				swordEffect.Play();
 

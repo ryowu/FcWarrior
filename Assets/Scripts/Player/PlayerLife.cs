@@ -140,6 +140,26 @@ public class PlayerLife : MonoBehaviour
 		}
 
 		anim.SetInteger("state", 0);
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+		//lost Player life
+		PlayerData.PlayerLife--;
+		if (PlayerData.PlayerLife < 1)
+		{
+			//dispose original bgm object
+			GameObject bgmobject = GameObject.FindGameObjectWithTag("bgmusic");
+			if (bgmobject != null)
+				Destroy(bgmobject);
+			
+			//reset life
+			PlayerData.PlayerLife = 3;
+
+			//load choose stage scene
+			SceneManager.LoadScene(1);
+		}
+		else
+		{
+			//Load current scene
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
 	}
 }

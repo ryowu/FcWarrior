@@ -5,6 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 	[SerializeField] private bool UseNaturalFollowing = false;
+	[SerializeField] private GameObject bgImage;
+
+	[SerializeField] private float bgImageOffsetX;
+	[SerializeField] private float bgImageOffsetY;
 
 	public float boundXLeft = -0.49f;
 	public float boundXRight = 183.57f;
@@ -72,9 +76,12 @@ public class CameraController : MonoBehaviour
 		{
 			Vector3 newPos = new Vector3(posX + xOffset, posY + yOffset, transform.position.z);
 			//if (UseNaturalFollowing)
-				transform.position = newPos;
+			transform.position = newPos;
 			//else
 			//	transform.position = Vector3.MoveTowards(transform.position, newPos, 8f * Time.deltaTime);
 		}
+
+		if (bgImage != null)
+			bgImage.transform.position = new Vector3(transform.position.x + bgImageOffsetX, transform.position.y + bgImageOffsetY, 0f);
 	}
 }

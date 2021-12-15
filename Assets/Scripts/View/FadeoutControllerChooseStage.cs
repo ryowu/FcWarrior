@@ -12,6 +12,15 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 	[SerializeField] private GameObject stageSelectBorder;
 	[SerializeField] private Text LoadingLabel;
 	[SerializeField] private Text stageName;
+	[SerializeField] private Text stageDescription;
+
+	[SerializeField] private Camera cameraMain;
+	[SerializeField] private GameObject stage1;
+	[SerializeField] private GameObject stage2;
+	[SerializeField] private GameObject stage3;
+
+	[SerializeField] private GameObject skillGroup;
+	[SerializeField] private GameObject skillBox;
 	private Animator anim;
 
 	float dirX, dirY;
@@ -69,7 +78,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 			{
 				lastInputTime = DateTime.Now;
 				SetStageBorderAndName();
-				
+
 			}
 
 			if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K))
@@ -80,6 +89,9 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				anim.SetTrigger("fadeout"); // this animation event will load the scene
 				LoadingLabel.enabled = true;
 			}
+
+			//set skill group position
+			skillGroup.transform.position = cameraMain.WorldToScreenPoint(skillBox.transform.position + new Vector3(-6f, -1.8f, 0f));
 		}
 
 
@@ -87,28 +99,28 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 
 	private void SetStageBorderAndName()
 	{
-
+		Vector2 stagePos = stage1.transform.position;
 		switch (stage)
 		{
 			case 2:
 				{
-					posX = 0f;
-					posY = 0f;
+					stagePos = stage1.transform.position;
 					stageName.text = "静溢森林";
+					stageDescription.text = "这片看似宁静祥和的森林实际上已经被污染，藏匿在深处的野兽已经做好了伏击任何侵入者的准备";
 					break;
 				}
 			case 3:
 				{
-					posX = 5.74f;
-					posY = 0f;
+					stagePos = stage2.transform.position;
 					stageName.text = "云中之城";
+					stageDescription.text = "高耸入云的城市遗迹中充满了各种陷阱，它考验着每一个对跳跃技巧充满自信的冒险者";
 					break;
 				}
 			case 4:
 				{
-					posX = 11.46f;
-					posY = 0f;
+					stagePos = stage3.transform.position;
 					stageName.text = "废弃电厂";
+					stageDescription.text = "荒废了许久的发电厂被怪物占据，但是似乎某些设备还在运转，请小心不要触电";
 					break;
 				}
 			case 5:
@@ -126,7 +138,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				}
 		}
 
-		stageSelectBorder.transform.position = new Vector2(posX, posY);
+		stageSelectBorder.transform.position = new Vector2(stagePos.x + 5.13f, stagePos.y - 2.57f);
 		stageSelectEffect.Play();
 
 	}
