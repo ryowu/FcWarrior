@@ -65,4 +65,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage3/Stage3Clear.unity
     guid: b1054360cde9bf44ba8a2aa219fd879c
+  - enabled: 1
+    path: Assets/Scenes/Stage4/Stage4_1.unity
+    guid: b1496b955fdb6284ea37d517490d733a
+  - enabled: 1
+    path: Assets/Scenes/Stage4/Stage4_2.unity
+    guid: 7a945ff7a67f656498aaf594ad0fa597
+  - enabled: 1
+    path: Assets/Scenes/Stage4/Stage4_3.unity
+    guid: 2eac9f3db6654c1478487dd6acd83a65
+  - enabled: 1
+    path: Assets/Scenes/Stage4/Stage4_Boss.unity
+    guid: 4f2cee24ba6e9e343980fc4c45f51178
+  - enabled: 1
+    path: Assets/Scenes/MISC/Gameover.unity
+    guid: a0b232a5b4eda1e498c41c5c5335d675
+  - enabled: 1
+    path: Assets/Scenes/MISC/GameComplete.unity
+    guid: e76245e00206ab5449a181c2bda1ad7d
   m_configObjects: {}

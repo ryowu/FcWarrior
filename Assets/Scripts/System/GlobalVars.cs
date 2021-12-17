@@ -6,6 +6,9 @@ public static class GlobalVars
 
 	public static int CheckPointPosition;
 
+	//Test assist
+	public static bool TrapSafe = false;
+
 
 	public static class BossAbnormalSequenceEvent
 	{
@@ -23,6 +26,9 @@ public static class GlobalVars
 
 public static class PlayerData
 {
+	
+
+
 	public static int PlayerLife = 3;
 	public static int PlayerHP = 10;
 	public static int PlayerMaxHP = 10;
@@ -32,6 +38,10 @@ public static class PlayerData
 	public static bool RockGunEnabled = false;
 	public static bool DoubleJumpEnabled = false;
 	public static bool PowerSword = false;
+
+	//public static bool RockGunEnabled = true;
+	//public static bool DoubleJumpEnabled = true;
+	//public static bool PowerSword = true;
 
 	public static void ResetPlayer()
 	{

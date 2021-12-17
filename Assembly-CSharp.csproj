@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemySkullController.cs" />
     <Compile Include="Assets\Scripts\Enemy\PatrolBase.cs" />
     <Compile Include="Assets\Scripts\View\HealthyBarController.cs" />
+    <Compile Include="Assets\Scripts\System\ShowExamplePowerSword.cs" />
     <Compile Include="Assets\Scripts\View\CameraController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBossAbnormalAI.cs" />
     <Compile Include="Assets\Scripts\System\GetNewSkillController.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\Player\FireballMoving.cs" />
     <Compile Include="Assets\Scripts\System\GlobalVars.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyLife.cs" />
+    <Compile Include="Assets\Scripts\System\SkillsController.cs" />
     <Compile Include="Assets\Scripts\System\MusicPlayer.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyPatrol.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
@@ -101,6 +103,8 @@
     <Compile Include="Assets\Scripts\Player\RecoverHpEffectController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRoutineAction.cs" />
     <Compile Include="Assets\Scripts\System\StageClearController.cs" />
+    <Compile Include="Assets\Scripts\System\ShowExampleDoubleJump.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerLifeTextController.cs" />
     <Compile Include="Assets\Scripts\View\EnterZoneController.cs" />
     <Compile Include="Assets\Scripts\Platform\JumpThroughPlatformController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMonitor.cs" />
@@ -110,10 +114,7 @@
     <Compile Include="Assets\Scripts\View\EnterNextStageController.cs" />
     <Compile Include="Assets\Scripts\Platform\ResetCameraOffset.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBossAbnormalShowup.cs" />
-    <Compile Include="Assets\Scripts\System\ShowExampleDoubleJump.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerLifeTextController.cs" />
-    <Compile Include="Assets\Scripts\System\SkillsController.cs" />
-    <Compile Include="Assets\Scripts\System\ShowExamplePowerSword.cs" />
+    <Compile Include="Assets\Scripts\System\StopBGMAndPlayNew.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\UI\parallax-industrial-pack\license.txt" />

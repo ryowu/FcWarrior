@@ -7,12 +7,19 @@ public class FadeOutController : MonoBehaviour
 {
 	[SerializeField] private int StageSceneIndex;
 	[SerializeField] private bool UseFireButtonToTriggerFadeout = false;
+	private bool hasInputSth;
 
+	private void Start()
+	{
+		hasInputSth = false;
+	}
 
 	private void Update()
 	{
-		if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J)) && UseFireButtonToTriggerFadeout)
+		if (hasInputSth) return;
+		if (Input.anyKeyDown && UseFireButtonToTriggerFadeout)
 		{
+			hasInputSth = true;
 			GetComponent<Animator>().SetTrigger("fadeout");
 		}
 	}

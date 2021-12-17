@@ -153,28 +153,6 @@ public class PlayerMovement : MonoBehaviour
 		//Bullet
 		if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.U))
 		{
-			//if (bulletCurrentCount >= bulletMaxCount)
-			//{
-			//	TimeSpan ts = DateTime.Now - bulletStartShootTime;
-			//	//cooldown finish
-			//	if (ts.TotalMilliseconds >= bulletGapTime)
-			//	{
-			//		bulletCurrentCount = 0;
-			//	}
-			//}
-			//else
-			//{
-			//	bulletCurrentCount++;
-
-			//	bulletStartShootTime = DateTime.Now; // remember the last shoot time
-
-			//	GameObject bulletNew = Instantiate(bulletPlayer, transform.position, transform.rotation, transform.parent);
-			//	FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
-			//	fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
-			//	fb.MovingSpeed = bulletSpeed;
-			//	shootEffect.Play();
-			//}
-
 			GameObject bulletNew = Instantiate(PlayerBullet, transform.position, transform.rotation, transform.parent);
 			FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
 			fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
@@ -228,5 +206,12 @@ public class PlayerMovement : MonoBehaviour
 	private bool IsJumpThroughGrounded()
 	{
 		return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpThroughGround);
+	}
+
+	private bool IsPlayerSqueezed()
+	{
+		RaycastHit2D reDown = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+		RaycastHit2D reUp = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 180f, Vector2.up, .1f, jumpableGround);
+		return reUp.collider != null && reDown.collider != null;
 	}
 }

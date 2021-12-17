@@ -10,6 +10,9 @@ public class ResetCameraOffset : MonoBehaviour
     [SerializeField] private bool UpdateFollowedObject;
     [SerializeField] private GameObject NewFollowedObject;
 
+
+    [SerializeField] private float NewBoundYBottom;
+
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +21,7 @@ public class ResetCameraOffset : MonoBehaviour
             CameraController cc = cameraMain.GetComponent<CameraController>();
             cc.xOffset = xOffset;
             cc.yOffset = yOffset;
+            cc.boundYBottom = NewBoundYBottom;
 
             if (UpdateFollowedObject)
                 cc.followTarget = NewFollowedObject;

@@ -18,6 +18,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 	[SerializeField] private GameObject stage1;
 	[SerializeField] private GameObject stage2;
 	[SerializeField] private GameObject stage3;
+	[SerializeField] private GameObject stage4;
 
 	[SerializeField] private GameObject skillGroup;
 	[SerializeField] private GameObject skillBox;
@@ -39,7 +40,20 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 		LoadingLabel.enabled = false;
 
 		stage = 2;
-		maxStage = 5;
+
+		//show final boss stage
+		if (PlayerData.DoubleJumpEnabled && PlayerData.PowerSword && PlayerData.RockGunEnabled)
+		{
+			stage4.SetActive(true);
+			maxStage = 6;
+		}
+		else
+		{
+			stage4.SetActive(false);
+			maxStage = 5;
+		}
+
+
 		lastInputTime = DateTime.Now;
 
 		anim = GetComponent<Animator>();
@@ -91,7 +105,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 			}
 
 			//set skill group position
-			skillGroup.transform.position = cameraMain.WorldToScreenPoint(skillBox.transform.position + new Vector3(-6f, -1.8f, 0f));
+			skillGroup.transform.position = cameraMain.WorldToScreenPoint(skillBox.transform.position + new Vector3(-6.5f, -1.8f, 0f));
 		}
 
 
@@ -125,15 +139,9 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 				}
 			case 5:
 				{
-					posX = 2.74f;
-					posY = -4.81f;
-					stageName.text = "";
-					break;
-				}
-			case 6:
-				{
-					posX = 9.29f;
-					posY = -4.81f;
+					stagePos = stage4.transform.position;
+					stageName.text = "幻境堡垒";
+					stageDescription.text = "在地平线的那边突然升起了一座堡垒，高耸的砖墙和冰冷的机关带来了不祥的预感";
 					break;
 				}
 		}
@@ -177,6 +185,11 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 			case 4:
 				{
 					result = 13;
+					break;
+				}
+			case 5:
+				{
+					result = 20;
 					break;
 				}
 		}

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BossRoomMusicController : MonoBehaviour
 {
-	[SerializeField] private AudioSource bossMusic;
-
 	private GameObject originalMusic;
 	private AudioSource audioBGMusic;
 	float deltaVolume;
@@ -21,6 +19,9 @@ public class BossRoomMusicController : MonoBehaviour
 		isPlayingBossMusic = false;
 		//GlobalVars.IsPlayerControllable = false;
 		originalMusic = GameObject.FindGameObjectWithTag("bgmusic");
+
+		if(originalMusic == null)
+			originalMusic = GameObject.FindGameObjectWithTag("finalbossBGM");
 		if (originalMusic != null)
 			audioBGMusic = originalMusic.GetComponent<AudioSource>();
 	}

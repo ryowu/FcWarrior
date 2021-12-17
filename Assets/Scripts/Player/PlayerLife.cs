@@ -113,7 +113,8 @@ public class PlayerLife : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Trap"))
 		{
-			PlayerDie();
+			if (!GlobalVars.TrapSafe)
+				PlayerDie();
 		}
 		else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
 		{
@@ -121,7 +122,7 @@ public class PlayerLife : MonoBehaviour
 		}
 	}
 
-	private void PlayerDie()
+	public void PlayerDie()
 	{
 		GlobalVars.IsPlayerControllable = false;
 
@@ -149,12 +150,12 @@ public class PlayerLife : MonoBehaviour
 			GameObject bgmobject = GameObject.FindGameObjectWithTag("bgmusic");
 			if (bgmobject != null)
 				Destroy(bgmobject);
-			
+
 			//reset life
 			PlayerData.PlayerLife = 3;
 
-			//load choose stage scene
-			SceneManager.LoadScene(1);
+			//load game over screen
+			SceneManager.LoadScene(24);
 		}
 		else
 		{

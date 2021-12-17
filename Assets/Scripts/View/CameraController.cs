@@ -23,14 +23,20 @@ public class CameraController : MonoBehaviour
 
 	public GameObject followTarget;
 
+	private Camera cameraMain;
+	Vector3 newPosWorldToScreen;
+
 	private void Start()
 	{
 		posX = transform.position.x;
 		posY = transform.position.y;
 
 		//Player is the default follow object
-		followTarget = GameObject.FindGameObjectWithTag("Player");
+		if (followTarget == null)
+			followTarget = GameObject.FindGameObjectWithTag("Player");
 		//UpdateCameraPosition();
+
+		cameraMain = GetComponent<Camera>();
 	}
 
 	private void Update()

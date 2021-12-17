@@ -12,6 +12,7 @@ TagManager:
   - FadeoutImage
   - bgmusic
   - PlayerSword
+  - finalbossBGM
   layers:
   - Default
   - TransparentFX

@@ -440,6 +440,7 @@ MonoBehaviour:
   hitSoundEffect: {fileID: 4057856537876784563}
   diamond: {fileID: 3399550746941487942, guid: fda7c03590df1da44a368602e6f85b2c, type: 3}
   coin: {fileID: 2185596488343396936, guid: f7fa5da12e137324794bdb7fdb4fd66a, type: 3}
+  DropItems: 1
   IsAlive: 0
 --- !u!114 &4057856537876784565
 MonoBehaviour:
@@ -483,6 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc465df15bc57c43b77447d0dea7073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routineTimePeriod: 4000
+  routineTimePeriod: 2800
   skullAttackEffect: {fileID: 4057856537876784552}
   skullBullet: {fileID: 100444669249558400, guid: d67279c78dc2e4f449d3dbd668409dbe, type: 3}

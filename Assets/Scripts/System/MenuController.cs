@@ -22,8 +22,7 @@ public class MenuController : MonoBehaviour
     {
 		if (triggerStarted) return;
 
-		if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.J)
-			|| Input.GetKeyDown(KeyCode.U) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+		if (Input.anyKeyDown)
 		{
 			ItemSelect.Play();
 			anim = FadeinoutImage.GetComponent<Animator>();
