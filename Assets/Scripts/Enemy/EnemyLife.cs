@@ -17,12 +17,15 @@ public class EnemyLife : MonoBehaviour
 
 	public bool IsAlive;
 
-	protected EnemyData eData;
+	public EnemyData eData;
+
+	public bool IsImmune;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		IsAlive = true;
+		IsImmune = false;
 		anim = GetComponent<Animator>();
 		enemyBody = GetComponent<Rigidbody2D>();
 		enemyCollider = GetComponent<BoxCollider2D>();
@@ -35,6 +38,8 @@ public class EnemyLife : MonoBehaviour
 
 	protected virtual void OnTriggerEnter2D(Collider2D collision)
 	{
+		if (IsImmune) return;
+
 		if ((collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("PlayerSword")) && !isDieing)
 		{
 			eData.EnemyHP -= 6;

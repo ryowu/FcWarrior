@@ -28,7 +28,7 @@ EditorBuildSettings:
     guid: ac2e919f1837d6945b92aaf16c98d3ff
   - enabled: 1
     path: Assets/Scenes/Stage1/Stage1_Boss.unity
-    guid: acc28e7d993d37944aa4b0e026326d56
+    guid: 841e2caeafa30a942810b4efd425fcfa
   - enabled: 1
     path: Assets/Scenes/Stage2/Stage2_1.unity
     guid: b6d802d3dde43c148ba7118d33510084
@@ -43,7 +43,7 @@ EditorBuildSettings:
     guid: 85dbfdccc246df94ea161ed93bedbca9
   - enabled: 1
     path: Assets/Scenes/Stage2/Stage2_Boss.unity
-    guid: d86605f2bdf528e489db280f692f2697
+    guid: b3240f1e4ca1e47439d32f7ee5f9b4a6
   - enabled: 1
     path: Assets/Scenes/Stage3/Stage3_1.unity
     guid: d6fc51c639c3663478fb5bc223e370e6
@@ -55,7 +55,7 @@ EditorBuildSettings:
     guid: 37ac39539f072854e81f8721f576af19
   - enabled: 1
     path: Assets/Scenes/Stage3/Stage3_Boss.unity
-    guid: 2bb51f75bf4b61546a41fe5f8abc02d8
+    guid: e29cf5dfd8b7bd343baced514aff3749
   - enabled: 1
     path: Assets/Scenes/Stage1/Stage1Clear.unity
     guid: 77fddc92d99b9714490a16ffa74e98a7
@@ -76,7 +76,7 @@ EditorBuildSettings:
     guid: 2eac9f3db6654c1478487dd6acd83a65
   - enabled: 1
     path: Assets/Scenes/Stage4/Stage4_Boss.unity
-    guid: 4f2cee24ba6e9e343980fc4c45f51178
+    guid: 20ab7af95ebaa004c911b5823e5d5565
   - enabled: 1
     path: Assets/Scenes/MISC/Gameover.unity
     guid: a0b232a5b4eda1e498c41c5c5335d675

@@ -135,10 +135,10 @@ public class PlayerLife : MonoBehaviour
 
 	private void RestartLevel()
 	{
-		if (SceneManager.GetActiveScene().buildIndex == 7)
-		{
-			GlobalVars.BossAbnormalSequenceEvent.StartAI = false;
-		}
+		//if (SceneManager.GetActiveScene().buildIndex == 7)
+		//{
+		//	GlobalVars.BossAbnormalSequenceEvent.StartAI = false;
+		//}
 
 		anim.SetInteger("state", 0);
 
@@ -148,6 +148,8 @@ public class PlayerLife : MonoBehaviour
 		{
 			//dispose original bgm object
 			GameObject bgmobject = GameObject.FindGameObjectWithTag("bgmusic");
+			if(bgmobject == null)
+				bgmobject = GameObject.FindGameObjectWithTag("finalbossBGM");
 			if (bgmobject != null)
 				Destroy(bgmobject);
 

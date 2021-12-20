@@ -21,7 +21,7 @@ public class StageClearController : MonoBehaviour
 
 	private void Update()
 	{
-		if (!GlobalVars.BossAbnormalSequenceEvent.StopBossBGM) return;
+		if (!GlobalVars.BossDefeat) return;
 
 		if (startWait)
 		{
@@ -32,9 +32,6 @@ public class StageClearController : MonoBehaviour
 				GameObject bgmobject = GameObject.FindGameObjectWithTag("bgmusic");
 				if (bgmobject != null)
 					Destroy(bgmobject);
-
-				GlobalVars.BossAbnormalSequenceEvent.StopBossBGM = false;
-				GlobalVars.BossAbnormalSequenceEvent.StartAI = false;
 
 				anim = FadeinoutImage.GetComponent<Animator>();
 				FadeinoutImage.enabled = true;

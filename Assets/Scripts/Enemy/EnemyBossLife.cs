@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyBossLife : EnemyLife
 {
-    private int hp;
     [SerializeField] public HealthyBarController healthyBar;
+    [SerializeField] public AudioSource HPrestoreEffect;
 
     protected override void InnerStart()
     {
         base.InnerStart();
-        hp = 0;
-        healthyBar.SetHPMaxValue(300);
-        healthyBar.SetHPValue(hp);
+        GlobalVars.BossDefeat = false;
+        healthyBar.SetHPMaxValue(eData.EnemyMaxHP);
+        healthyBar.SetHPValue(eData.EnemyMaxHP);
     }
 
     protected override void RefreshHPBar()
@@ -23,6 +23,6 @@ public class EnemyBossLife : EnemyLife
 
     protected override void OnEnemyDie()
     {
-        GlobalVars.BossAbnormalSequenceEvent.StopBossBGM = true;
+        GlobalVars.BossDefeat = true;
     }
 }
