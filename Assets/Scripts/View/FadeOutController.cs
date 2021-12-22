@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FadeOutController : MonoBehaviour
 {
-	[SerializeField] private int StageSceneIndex;
+	public int StageSceneIndex;
 	[SerializeField] private bool UseFireButtonToTriggerFadeout = false;
 	private bool hasInputSth;
 

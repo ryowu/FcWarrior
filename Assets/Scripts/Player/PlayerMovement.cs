@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] private GameObject PlayerBullet;
 	[SerializeField] private GameObject PlayerSword;
+	[SerializeField] private GameObject ChargegunBullet;
+	
 
 	[SerializeField] private LayerMask jumpableGround;
 	[SerializeField] private LayerMask jumpThroughGround;
@@ -23,17 +25,14 @@ public class PlayerMovement : MonoBehaviour
 
 	[SerializeField] private float moveSpeed = 7f;
 	[SerializeField] private float jumpForce = 14f;
-	//[SerializeField] private int bulletGapTime = 500;
-	//private DateTime bulletStartShootTime;
-	//[SerializeField] private int bulletMaxCount = 3;
-	//private int bulletCurrentCount;
-	[SerializeField] private float bulletSpeed = 20f;
 
 	private enum MovementState { idle, running, jumping, falling, doubleJump, hit }
 
 	[SerializeField] private AudioSource jumpSoundEffect;
 	[SerializeField] private AudioSource shootEffect;
 	[SerializeField] private AudioSource swordEffect;
+	[SerializeField] private AudioSource chargegunEffect;
+	[SerializeField] private AudioSource powerlowEffect;
 
 	DateTime swordStartTime;
 	private float swordDistance = 1f;
@@ -156,13 +155,41 @@ public class PlayerMovement : MonoBehaviour
 			GameObject bulletNew = Instantiate(PlayerBullet, transform.position, transform.rotation, transform.parent);
 			FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
 			fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
-			fb.MovingSpeed = bulletSpeed;
+
+			if (PlayerData.DoubleGun)
+			{
+				Vector3 newInitPos = new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z);
+				bulletNew = Instantiate(PlayerBullet, newInitPos, transform.rotation, transform.parent);
+				fb = bulletNew.GetComponent<FireballMoving>();
+				fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y - 0.3f, transform.position.z);
+			}
+
 			shootEffect.Play();
 		}
 
-		if (Input.GetButtonDown("Fire3"))
+		//Side weapon
+		if (Input.GetButtonDown("Fire3") || Input.GetKeyDown(KeyCode.I))
 		{
-			//coll.isTrigger = true;
+			if (PlayerData.SideWeaponChargeReady)
+			{
+				int cost = PlayerData.SideWeaponCostHalf ? 2 : 4;
+				if (PlayerData.PlayerDiamond >= cost)
+				{
+					PlayerData.PlayerDiamond -= cost;
+					PlayerData.SideWeaponChargeReady = false;
+					GetComponent<ItemCollector>().RefreshDiamondText();
+
+					Vector3 newInitPos = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 2f, transform.position.y, transform.position.z);
+					GameObject bulletChargeGun = Instantiate(ChargegunBullet, newInitPos, transform.rotation, transform.parent);
+					FireballMoving fb = bulletChargeGun.GetComponent<FireballMoving>();
+					fb.TargetPostion = new Vector3(transform.position.x + (sprite.flipX ? -1f : 1f) * 20f, transform.position.y, transform.position.z);
+					chargegunEffect.Play();
+				}
+				else
+				{
+					//powerlowEffect.Play();
+				}
+			}
 		}
 
 		UpdateAnimationState();

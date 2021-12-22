@@ -42,7 +42,9 @@ public class EnemyLife : MonoBehaviour
 
 		if ((collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("PlayerSword")) && !isDieing)
 		{
-			eData.EnemyHP -= 6;
+			//Get bullet damage
+			FireballData damage = collision.gameObject.GetComponent<FireballData>();
+			eData.EnemyHP -= damage.Damage;
 
 			RefreshHPBar();
 

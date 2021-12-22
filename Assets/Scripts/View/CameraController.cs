@@ -9,11 +9,16 @@ public class CameraController : MonoBehaviour
 	[SerializeField] private float bgImageOffsetX;
 	[SerializeField] private float bgImageOffsetY;
 
+	[SerializeField] private bool UseMovingBackground = false;
+	[SerializeField] private GameObject background5;
+	[SerializeField] private float bg5Distance = 0;
+	[SerializeField] private GameObject background4;
+	[SerializeField] private float bg4Distance = 0;
+
 	public float boundXLeft = -0.49f;
 	public float boundXRight = 183.57f;
 	public float boundYTop = 35.1f;
 	public float boundYBottom = 2.2f;
-
 	public float xOffset = 0f;
 	public float yOffset = 0f;
 
@@ -73,5 +78,17 @@ public class CameraController : MonoBehaviour
 
 		if (bgImage != null)
 			bgImage.transform.position = new Vector3(transform.position.x + bgImageOffsetX, transform.position.y + bgImageOffsetY, 0f);
+
+		if (UseMovingBackground)
+			MoveBackground();
+	}
+
+	private void MoveBackground()
+	{
+		Vector2 newPos = new Vector2(transform.position.x / boundXRight * bg5Distance, background5.transform.position.y);
+		background5.transform.position = newPos;
+
+		newPos = new Vector2(transform.position.x / boundXRight * bg4Distance, background4.transform.position.y);
+		background4.transform.position = newPos;
 	}
 }

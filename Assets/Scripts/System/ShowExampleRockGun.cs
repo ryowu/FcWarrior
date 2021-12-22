@@ -44,7 +44,6 @@ public class ShowExampleRockGun : MonoBehaviour
 			GameObject bulletNew = Instantiate(PlayerBullet, transform.position, transform.rotation, transform.parent);
 			FireballMoving fb = bulletNew.GetComponent<FireballMoving>();
 			fb.TargetPostion = new Vector3(transform.position.x + 20f, transform.position.y, transform.position.z);
-			fb.MovingSpeed = 35f;
 			shootEffect.Play();
 
 			//init rock

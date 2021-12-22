@@ -5,23 +5,26 @@ using UnityEngine;
 public class FireballMoving : MonoBehaviour
 {
 	public Vector3 TargetPostion;
-	public float MovingSpeed;
-	private Renderer render;
+	private float movingSpeed;
+	private SpriteRenderer sr;
 
 	void Start()
 	{
-		render = GetComponent<Renderer>();
+		movingSpeed = GetComponent<FireballData>().Speed;
+		sr = GetComponent<SpriteRenderer>();
+		sr.flipX = TargetPostion.x <= transform.position.x;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		//Destroy when out of camera
-		if (!render.isVisible) Destroy(this.gameObject);
+		if (!sr.isVisible) Destroy(this.gameObject);
+		
 
 		if (Vector3.Distance(TargetPostion, transform.position) > 0.1f)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, TargetPostion, MovingSpeed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, TargetPostion, movingSpeed * Time.deltaTime);
 		}
 		else
 		{
@@ -29,17 +32,4 @@ public class FireballMoving : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
-
-	//void OnTriggerEnter2D(Collider2D collision)
-	//{
-	//	if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Cherry" || collision.gameObject.layer == 6)
-	//	{
-	//		Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-	//	}
-	//	else
-	//	{
-	//		Destroy(this.gameObject);
-	//	}
-	//}
-
 }

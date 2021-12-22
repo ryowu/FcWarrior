@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ItemCollector : MonoBehaviour
 {
-	private int coinCount;
-
 	[SerializeField] private AudioSource collectSoundEffect;
 	[SerializeField] private AudioSource recoverSoundEffect;
 	[SerializeField] Text itemText;
@@ -16,7 +14,6 @@ public class ItemCollector : MonoBehaviour
 
 	private void Start()
 	{
-		coinCount = PlayerData.PlayerDiamond;
 		RefreshDiamondText();
 	}
 
@@ -31,16 +28,15 @@ public class ItemCollector : MonoBehaviour
 
 				GameObject recoverHp = Instantiate(recoverEffect, transform.position, transform.rotation, transform);
 
-				PlayerData.PlayerHP += 2;
+				int restoreHPvalue = 2;
+				if (PlayerData.RecoverPowerUp) restoreHPvalue = (int)(restoreHPvalue * 1.5);
+				PlayerData.PlayerHP += restoreHPvalue;
 				healthyBar.SetHPValue(PlayerData.PlayerHP);
 			}
 			else
 			{
 				//Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-				coinCount += GetItemValue(collision.gameObject.name);
-
-				//save to global
-				PlayerData.PlayerDiamond = coinCount;
+				PlayerData.PlayerDiamond += GetItemValue(collision.gameObject.name);
 
 				collectSoundEffect.Play();
 				RefreshDiamondText();
@@ -61,9 +57,9 @@ public class ItemCollector : MonoBehaviour
 		return valueResult;
 	}
 
-	private void RefreshDiamondText()
+	public void RefreshDiamondText()
 	{
 		if (itemText != null)
-			itemText.text = string.Format("{0}", coinCount);
+			itemText.text = string.Format("{0}", PlayerData.PlayerDiamond);
 	}
 }

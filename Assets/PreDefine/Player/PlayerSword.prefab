@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6236579122370730535}
   - component: {fileID: 6236579122370730529}
   - component: {fileID: 6236579122370730528}
+  - component: {fileID: -7569665205304303156}
   m_Layer: 0
   m_Name: PlayerSword
   m_TagString: PlayerSword
@@ -164,3 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f396a45c5f9b59e48b3ec631c3430d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7569665205304303156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236579122370730555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7882d6eb5dd5b4c9f70d2cf5b076a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireballName: Sword
+  Damage: 7
+  Speed: 5

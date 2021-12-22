@@ -83,4 +83,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MISC/GameComplete.unity
     guid: e76245e00206ab5449a181c2bda1ad7d
+  - enabled: 1
+    path: Assets/Scenes/Stage1/SecretRoom1_2.unity
+    guid: 56c1b60409947bf4fae31f1516a6d1fd
+  - enabled: 1
+    path: Assets/Scenes/Stage1/SecretRoom1_5.unity
+    guid: eb0fbed130d3615449499f35ef6122b4
+  - enabled: 1
+    path: Assets/Scenes/Stage2/SecretRoom2_4.unity
+    guid: feea055ea0cfca640beeee9b882c85b0
+  - enabled: 1
+    path: Assets/Scenes/Stage3/SecretRoom3_3.unity
+    guid: 8faf19e0b924d584093839c20c7cb925
+  - enabled: 1
+    path: Assets/Scenes/Stage4/SecretRoom4_2.unity
+    guid: 569d948eac6d65d47b3aab89cf28b1c5
   m_configObjects: {}

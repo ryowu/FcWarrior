@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8352121594345468164}
   - component: {fileID: 4856279984611679321}
   - component: {fileID: 7506931116602391929}
+  - component: {fileID: 5543419930557546027}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Bullet
@@ -145,4 +146,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPostion: {x: 0, y: 0, z: 0}
-  MovingSpeed: 0
+--- !u!114 &5543419930557546027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267507858258757299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7882d6eb5dd5b4c9f70d2cf5b076a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireballName: Rockgun
+  Damage: 6
+  Speed: 30

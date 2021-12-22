@@ -65,7 +65,11 @@ public class PlayerLife : MonoBehaviour
 			EnemyData eData = collision.gameObject.GetComponent<EnemyData>();
 			//collide with rocks, does not hurt
 			if (eData.EnemyATK < 1) return;
-			hp -= eData.EnemyATK;
+
+			if (PlayerData.DoubleDef)
+				hp -= eData.EnemyATK / 2;
+			else
+				hp -= eData.EnemyATK;
 
 			healthyBar.SetHPValue(hp);
 			if (hp <= 0)
@@ -148,7 +152,7 @@ public class PlayerLife : MonoBehaviour
 		{
 			//dispose original bgm object
 			GameObject bgmobject = GameObject.FindGameObjectWithTag("bgmusic");
-			if(bgmobject == null)
+			if (bgmobject == null)
 				bgmobject = GameObject.FindGameObjectWithTag("finalbossBGM");
 			if (bgmobject != null)
 				Destroy(bgmobject);
