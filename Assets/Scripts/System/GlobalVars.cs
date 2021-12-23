@@ -41,6 +41,12 @@ public static class PlayerData
 	public static bool SideWeaponCostHalf = false;
 	public static bool SideWeaponCooldownHalf = false;
 
+	//public static bool DoubleGun = true;
+	//public static bool DoubleDef = true;
+	//public static bool RecoverPowerUp = true;
+	//public static bool SideWeaponCostHalf = true;
+	//public static bool SideWeaponCooldownHalf = true;
+
 	public static void ResetPlayer()
 	{
 		PlayerHP = 10;

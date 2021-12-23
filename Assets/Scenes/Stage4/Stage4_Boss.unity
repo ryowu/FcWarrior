@@ -132,7 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5631536383362207545, guid: e6d60f861682a0143ace7b1cf89420fa, type: 3}
       propertyPath: StageSceneIndex
-      value: 17
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631536383362207545, guid: e6d60f861682a0143ace7b1cf89420fa, type: 3}
+      propertyPath: UseFireButtonToTriggerFadeout
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7262595120073411969, guid: e6d60f861682a0143ace7b1cf89420fa, type: 3}
       propertyPath: m_Color.a

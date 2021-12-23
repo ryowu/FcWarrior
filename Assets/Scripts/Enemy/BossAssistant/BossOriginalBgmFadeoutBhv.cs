@@ -16,6 +16,10 @@ public class BossOriginalBgmFadeoutBhv : StateMachineBehaviour
         GlobalVars.IsPlayerControllable = false;
 
         originalMusic = GameObject.FindGameObjectWithTag("bgmusic");
+
+        if(originalMusic == null)
+            originalMusic = GameObject.FindGameObjectWithTag("finalbossBGM");
+
         if (originalMusic != null)
             audioBGMusic = originalMusic.GetComponent<AudioSource>();
         isPlayingOriginalbgm = true;
