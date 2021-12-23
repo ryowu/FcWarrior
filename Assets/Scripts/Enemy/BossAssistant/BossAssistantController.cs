@@ -6,6 +6,7 @@ public class BossAssistantController : MonoBehaviour
 {
 	[SerializeField] public GameObject Boss;
 	[SerializeField] public GameObject HPBar;
+	[SerializeField] public GameObject DialogArea;
 	private Animator anim;
 
 	private void Start()

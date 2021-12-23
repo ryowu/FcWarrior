@@ -18,10 +18,12 @@ public class BossHPshowup : StateMachineBehaviour
 		hp = 0;
 		boss = animator.GetComponent<BossAssistantController>().Boss;
 		bosslife = boss.GetComponent<EnemyBossLife>();
+		eData = boss.GetComponent<EnemyData>();
 		bosslife.healthyBar.SetHPValue(0);
+		bosslife.healthyBar.SetHPMaxValue(eData.EnemyMaxHP);
 		//show HP bar
 		animator.GetComponent<BossAssistantController>().HPBar.SetActive(true);
-		eData = boss.GetComponent<EnemyData>();
+		
 		soundStartTime = DateTime.Now;
 		hpSetDone = false;
 	}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossAboriginalRunBhv : StateMachineBehaviour
+public class BossAboriginalSmashBhv : StateMachineBehaviour
 {
 	private GameObject player;
 	private BossAboriginalAI bossAI;
@@ -11,14 +11,17 @@ public class BossAboriginalRunBhv : StateMachineBehaviour
 	bool hasDoneAction;
 	private float bossSpeed;
 
+	private bool isFalling;
+
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
-		targetPos = new Vector2(player.transform.position.x, animator.transform.position.y);
+		targetPos = new Vector2(animator.transform.position.x, animator.transform.position.y + 7f);
 		bossAI = animator.GetComponent<BossAboriginalAI>();
-		bossSpeed = bossAI.GetBossSpeed();
+		bossSpeed = bossAI.GetBossScrollSpeed();
 		hasDoneAction = false;
+		isFalling = false;
 		bossAI.FaceToPlayer();
 	}
 
@@ -27,29 +30,31 @@ public class BossAboriginalRunBhv : StateMachineBehaviour
 	{
 		if (hasDoneAction) return;
 
-		//Show rage
-		if (bossAI.IsRage && !bossAI.RageShown)
-		{
-			bossAI.RageShown = true;
-			bossAI.SetImmune(true);
-			hasDoneAction = true;
-			animator.SetTrigger("bossrage");
-			return;
-		}
-
-		//Run to player position
 		if (Vector2.Distance(animator.transform.position, targetPos) > 0.1f)
 		{
 			animator.transform.position = Vector2.MoveTowards(animator.transform.position, targetPos, bossSpeed * Time.deltaTime);
-			bossAI.FlipX = targetPos.x < animator.transform.position.x;
+			//if(targetPos.y > animator.transform.position.y)
+			//	animator.SetInteger("state", 2);
+			//else
+			//	animator.SetInteger("state", 3);
 		}
 		else
 		{
 			animator.transform.position = targetPos;
-			bossAI.FaceToPlayer();
-			hasDoneAction = true;
-			//set the smash
-			animator.SetInteger("state", 6);
+			if (!isFalling)
+			{
+				targetPos = new Vector2(animator.transform.position.x, 1.01f);
+				isFalling = true;
+			}
+			else
+			{
+				bossAI.FaceToPlayer();
+				hasDoneAction = true;
+				//fire lava
+				bossAI.FireLava();
+				//set the smash
+				animator.SetInteger("state", 5);
+			}
 		}
 	}
 }

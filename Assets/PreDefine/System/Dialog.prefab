@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775115095174392848}
   - component: {fileID: 1775115095174392849}
+  - component: {fileID: 4009432135227580128}
   m_Layer: 5
   m_Name: Dialog
   m_TagString: Untagged
@@ -57,6 +58,19 @@ MonoBehaviour:
   - "\u897F\u90E8\u72C2\u91CE\u7684\u725B\u4ED4\u98CE\u683C\u8BA9\u4F60\u9886\u609F\u5230\u4E86\u53CC\u67AA\u7684\u723D\u5FEB"
   - "\u4E00\u9635\u8000\u773C\u7684\u91D1\u5149\u95EA\u8FC7"
   - "\u4F60\u5B66\u4F1A\u4E86\u65B0\u6280\u80FD\u3010\u53CC\u67AA\u5927\u98D8\u5BA2\u3011"
+--- !u!114 &4009432135227580128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775115095174392851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490602016048c6144b1b4ee6d97303cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextButton: {fileID: 1775115095487942708}
 --- !u!1 &1775115095487942710
 GameObject:
   m_ObjectHideFlags: 0

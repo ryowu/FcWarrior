@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,9 +53,6 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Scripts\Platform\FlashSquareManager.cs" />
     <Compile Include="Assets\Scripts\System\SequenceEventBase.cs" />
     <Compile Include="Assets\Scripts\Items\ItemCollector.cs" />
@@ -65,7 +62,8 @@
     <Compile Include="Assets\Scripts\Enemy\PatrolBase.cs" />
     <Compile Include="Assets\Scripts\View\HealthyBarController.cs" />
     <Compile Include="Assets\Scripts\System\ShowExamplePowerSword.cs" />
-    <Compile Include="Assets\Scripts\Enemy\BossAboriginal\BossAboriginalRunBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossAboriginal\BossAboriginalScrollBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossAboriginal\BossAboriginalSmashBhv.cs" />
     <Compile Include="Assets\Scripts\View\CameraController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAboriginal\BossAboriginalAI.cs" />
     <Compile Include="Assets\Scripts\System\GetNewSkillController.cs" />
@@ -97,12 +95,13 @@
     <Compile Include="Assets\Scripts\System\SecretRoomController.cs" />
     <Compile Include="Assets\Scripts\System\ShowExampleRockGun.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAssistant\BossShowupBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossAboriginal\BossAboriginalRunBhv.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossFireballRound.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyLifeRock.cs" />
     <Compile Include="Assets\Scripts\Player\FireballData.cs" />
     <Compile Include="Assets\Scripts\Items\CollectableItemController.cs" />
     <Compile Include="Assets\Scripts\Enemy\AttackOnceAndGo.cs" />
-    <Compile Include="Assets\Scripts\View\DialogController.cs" />
+    <Compile Include="Assets\Scripts\System\DialogController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossFrog\BossFrogRunBhv.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\StageClear.cs" />
@@ -127,6 +126,13 @@
     <Compile Include="Assets\Scripts\Enemy\BossAssistant\BossWarningBhv.cs" />
     <Compile Include="Assets\Scripts\View\EnterNextStageController.cs" />
     <Compile Include="Assets\Scripts\Platform\ResetCameraOffset.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyJumpBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyAI.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyRunBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyFallBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\LittleBulletController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyJumpCenter.cs" />
+    <Compile Include="Assets\Scripts\System\DialogNextButtonController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\UI\parallax-industrial-pack\license.txt" />

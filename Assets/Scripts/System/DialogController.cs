@@ -8,12 +8,18 @@ public class DialogController : MonoBehaviour
 	[SerializeField] private Image DialogNextButton;
 	[SerializeField] private Text DialogTextWindow;
 	[SerializeField] private string[] DialogTextContent;
+	[SerializeField] private bool ReleasePlayerWhenComplete = true;
+	[SerializeField] private GameObject AnimatorHost;
+	private Animator anim;
 	private int textIndex;
 	void Start()
 	{
 		DialogNextButton.enabled = false;
 		textIndex = 0;
 		DialogTextWindow.text = DialogTextContent[textIndex];
+
+		if (AnimatorHost != null)
+			anim = AnimatorHost.GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
@@ -30,7 +36,13 @@ public class DialogController : MonoBehaviour
 			else
 			{
 				this.gameObject.SetActive(false);
-				GlobalVars.IsPlayerControllable = true;
+				if (ReleasePlayerWhenComplete)
+					GlobalVars.IsPlayerControllable = true;
+
+				if (anim != null)
+				{
+					anim.SetTrigger("hpshowup");
+				}
 			}
 		}
 	}

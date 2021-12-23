@@ -28,7 +28,9 @@ public class BossShowupBhv : StateMachineBehaviour
         {
             boss.transform.position = targetPos;
             isArrived = true;
-            animator.SetTrigger("hpshowup");
+            //show dialog
+            animator.GetComponent<BossAssistantController>().DialogArea.SetActive(true);
+            //animator.SetTrigger("hpshowup");
         }
     }
 }
