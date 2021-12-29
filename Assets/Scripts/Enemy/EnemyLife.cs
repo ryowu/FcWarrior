@@ -62,7 +62,10 @@ public class EnemyLife : MonoBehaviour
 
 			//Destroy bullet
 			if (collision.gameObject.CompareTag("Bullet"))
-				Destroy(collision.gameObject);
+			{
+				collision.gameObject.GetComponent<FireballMoving>().hasDoneAction = true;
+				collision.gameObject.GetComponent<Animator>().SetTrigger("hit");
+			}
 		}
 	}
 
