@@ -16,7 +16,7 @@ public class BossAboriginalAI : MonoBehaviour
 	private Animator aim;
 	string[] actionList;
 	int actionIndex;
-	private int bossRageState;
+
 	public bool IsRage
 	{
 		get

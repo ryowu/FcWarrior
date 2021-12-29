@@ -33,10 +33,6 @@ public class BossAboriginalSmashBhv : StateMachineBehaviour
 		if (Vector2.Distance(animator.transform.position, targetPos) > 0.1f)
 		{
 			animator.transform.position = Vector2.MoveTowards(animator.transform.position, targetPos, bossSpeed * Time.deltaTime);
-			//if(targetPos.y > animator.transform.position.y)
-			//	animator.SetInteger("state", 2);
-			//else
-			//	animator.SetInteger("state", 3);
 		}
 		else
 		{
