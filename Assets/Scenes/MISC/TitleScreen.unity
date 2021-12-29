@@ -462,7 +462,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beta Version 1.0.4
+  m_Text: Release Version 1.0.0
 --- !u!222 &1054232536
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -887,7 +887,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5631536383362207545, guid: e6d60f861682a0143ace7b1cf89420fa, type: 3}
       propertyPath: StageSceneIndex
-      value: 1
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7262595120073411969, guid: e6d60f861682a0143ace7b1cf89420fa, type: 3}
       propertyPath: m_Color.a

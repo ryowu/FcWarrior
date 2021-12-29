@@ -72,9 +72,14 @@ public class EnemyLife : MonoBehaviour
 
 	protected void EnemyDie()
 	{
-		dieSoundEffect.Play();
 		IsAlive = false;
-		anim.SetTrigger("death");
+		if (this.name == "BossSelf")
+			anim.SetTrigger("dieing");
+		else
+		{
+			dieSoundEffect.Play();
+			anim.SetTrigger("death");
+		}
 	}
 
 	private void DestroyEnemy()

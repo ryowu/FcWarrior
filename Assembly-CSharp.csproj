@@ -59,7 +59,10 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyBossLife.cs" />
     <Compile Include="Assets\Scripts\Items\FCGameCardConroller.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySkullController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyJumpBhv.cs" />
+    <Compile Include="Assets\Scripts\System\ScriptTextController.cs" />
     <Compile Include="Assets\Scripts\Enemy\PatrolBase.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyFallBhv.cs" />
     <Compile Include="Assets\Scripts\View\HealthyBarController.cs" />
     <Compile Include="Assets\Scripts\System\ShowExamplePowerSword.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAboriginal\BossAboriginalScrollBhv.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Assets\Scripts\View\CameraController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAboriginal\BossAboriginalAI.cs" />
     <Compile Include="Assets\Scripts\System\GetNewSkillController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyJumpCenter.cs" />
     <Compile Include="Assets\Scripts\View\FadeoutControllerChooseStage.cs" />
     <Compile Include="Assets\Scripts\Platform\PlatformPatrol.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAssistant\BossHPshowup.cs" />
@@ -92,6 +96,7 @@
     <Compile Include="Assets\Scripts\Enemy\SkullBulletController.cs" />
     <Compile Include="Assets\Scripts\View\InfoLabelController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSwordController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyRunBhv.cs" />
     <Compile Include="Assets\Scripts\System\SecretRoomController.cs" />
     <Compile Include="Assets\Scripts\System\ShowExampleRockGun.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAssistant\BossShowupBhv.cs" />
@@ -107,6 +112,7 @@
     <Compile Include="Assets\Scripts\StageClear.cs" />
     <Compile Include="Assets\Scripts\System\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyData.cs" />
+    <Compile Include="Assets\Scripts\System\DialogNextButtonController.cs" />
     <Compile Include="Assets\Scripts\System\SequenceEventManager.cs" />
     <Compile Include="Assets\Scripts\View\FadeInController.cs" />
     <Compile Include="Assets\Scripts\Player\RecoverHpEffectController.cs" />
@@ -116,6 +122,7 @@
     <Compile Include="Assets\Scripts\System\StageClearController.cs" />
     <Compile Include="Assets\Scripts\System\ShowExampleDoubleJump.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLifeTextController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossPinky\LittleBulletController.cs" />
     <Compile Include="Assets\Scripts\View\EnterZoneController.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossAssistant\BossOriginalBgmFadeoutBhv.cs" />
     <Compile Include="Assets\Scripts\Platform\JumpThroughPlatformController.cs" />
@@ -126,13 +133,14 @@
     <Compile Include="Assets\Scripts\Enemy\BossAssistant\BossWarningBhv.cs" />
     <Compile Include="Assets\Scripts\View\EnterNextStageController.cs" />
     <Compile Include="Assets\Scripts\Platform\ResetCameraOffset.cs" />
-    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyJumpBhv.cs" />
     <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyAI.cs" />
-    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyRunBhv.cs" />
-    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyFallBhv.cs" />
-    <Compile Include="Assets\Scripts\Enemy\BossPinky\LittleBulletController.cs" />
-    <Compile Include="Assets\Scripts\Enemy\BossPinky\BossPinkyJumpCenter.cs" />
-    <Compile Include="Assets\Scripts\System\DialogNextButtonController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossSelf\BossSelfAI.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossSelf\BossSelfRunBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossSelf\BossSelfBulletController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossSelf\BossSelfDashBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossSelf\BossSelfJumpBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossSelf\BossSelfFallBhv.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BossSelf\BossSelfDieingBhv.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\UI\parallax-industrial-pack\license.txt" />

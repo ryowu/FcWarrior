@@ -13,6 +13,7 @@ TagManager:
   - bgmusic
   - PlayerSword
   - finalbossBGM
+  - bossAssistant
   layers:
   - Default
   - TransparentFX

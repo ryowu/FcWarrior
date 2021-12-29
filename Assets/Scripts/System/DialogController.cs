@@ -41,7 +41,11 @@ public class DialogController : MonoBehaviour
 
 				if (anim != null)
 				{
-					anim.SetTrigger("hpshowup");
+					//if it's final boss, set to final boss death trigger
+					if (anim.CompareTag("Enemy"))
+						anim.SetTrigger("death");
+					else
+						anim.SetTrigger("hpshowup");
 				}
 			}
 		}

@@ -7,6 +7,10 @@ public class BossAssistantController : MonoBehaviour
 	[SerializeField] public GameObject Boss;
 	[SerializeField] public GameObject HPBar;
 	[SerializeField] public GameObject DialogArea;
+	[SerializeField] private AudioSource BGM_NormalBoss;
+	[SerializeField] private AudioSource BGM_FinalBoss;
+	[SerializeField] private AudioSource BGM_FinalWords;
+
 	private Animator anim;
 
 	private void Start()
@@ -21,5 +25,24 @@ public class BossAssistantController : MonoBehaviour
 	{
 		anim.ResetTrigger("warning");
 		anim.SetTrigger("showup");
+	}
+
+	public void PlayBGMNormal()
+	{
+		BGM_NormalBoss.Play();
+	}
+
+	public void PlayBGMFinal()
+	{
+		BGM_FinalBoss.Play();
+	}
+
+	public void StopPlayBossBGM()
+	{
+		if (BGM_FinalBoss.isPlaying)
+		{
+			BGM_FinalBoss.Stop();
+			BGM_FinalWords.Play();
+		}
 	}
 }

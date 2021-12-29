@@ -54,6 +54,14 @@ public class BossHPshowup : StateMachineBehaviour
 			//set state to run
 			GameObject boss = animator.GetComponent<BossAssistantController>().Boss;
 			Animator anim = boss.GetComponent<Animator>();
+
+			//Play BGM
+
+			if (anim.name == "BossSelf")
+				animator.GetComponent<BossAssistantController>().PlayBGMFinal();
+			else
+				animator.GetComponent<BossAssistantController>().PlayBGMNormal();
+
 			anim.SetInteger("state", 1);
 			Destroy(animator);
 

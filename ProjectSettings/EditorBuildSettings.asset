@@ -98,4 +98,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage4/SecretRoom4_2.unity
     guid: 569d948eac6d65d47b3aab89cf28b1c5
+  - enabled: 1
+    path: Assets/Scenes/MISC/StoryPreStart.unity
+    guid: 91e95780ab82fb847af14a3d6e57d11c
   m_configObjects: {}
