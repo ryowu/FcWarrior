@@ -19,12 +19,4 @@ public class StickToPlatform : MonoBehaviour
 			collision.gameObject.transform.SetParent(null);
 		}
 	}
-
-	private void OnTriggerEnter2D(Collision collision)
-	{
-		if (collision.gameObject.name == "dropitem")
-		{
-			collision.gameObject.transform.SetParent(transform);
-		}
-	}
 }

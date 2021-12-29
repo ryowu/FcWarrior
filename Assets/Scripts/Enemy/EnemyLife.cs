@@ -38,21 +38,20 @@ public class EnemyLife : MonoBehaviour
 
 	protected virtual void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (IsImmune) return;
-
 		if ((collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("PlayerSword")) && !isDieing)
 		{
-			//Get bullet damage
-			FireballData damage = collision.gameObject.GetComponent<FireballData>();
-			eData.EnemyHP -= damage.Damage;
-
-			RefreshHPBar();
+			if (!IsImmune)
+			{
+				//Get bullet damage
+				FireballData damage = collision.gameObject.GetComponent<FireballData>();
+				eData.EnemyHP -= damage.Damage;
+				RefreshHPBar();
+			}
 
 			if (eData.EnemyHP <= 0)
 			{
 				isDieing = true;
 				enemyCollider.isTrigger = true;
-
 				EnemyDie();
 			}
 			else

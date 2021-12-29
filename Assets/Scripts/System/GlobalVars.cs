@@ -18,7 +18,7 @@ public static class PlayerData
 	public static int PlayerLife = 3;
 	public static int PlayerHP = 10;
 	public static int PlayerMaxHP = 10;
-	public static int PlayerDiamond = 10;
+	public static int PlayerDiamond = 0;
 
 	public static bool SideWeaponChargeReady = false;
 	public static int SideWeaponCooldownPeriod = 1200;
