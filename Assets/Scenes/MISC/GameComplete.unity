@@ -751,8 +751,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1477.8776}
-  m_SizeDelta: {x: 0, y: 2708.4097}
+  m_AnchoredPosition: {x: 0, y: -1577.9934}
+  m_SizeDelta: {x: 0, y: 2908.6416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1219291608
 MonoBehaviour:
@@ -792,7 +792,7 @@ MonoBehaviour:
     (Free 8-Bit Video Game Music)\r\n\r\nCyberleaf Studio:\r\nThe 8-bit Jukebox Lite
     - Music Pack\r\n\r\nCryptogene:\r\nSimple UI\r\n\r\nGWriterStudio:\r\n8Bit Music
     Album - 051321\r\n\r\nDustyroom:\r\nFREE Casual Game SFX Pack\r\n\r\nAnsimuz:\r\nWarped
-    Shooting Fx\r\n\r\n\r\n\r\n\r\n\r\n\u611F\u8C22\u6240\u6709\u7ED9\u4E88\u8FD9\u4E2A\u6E38\u620F\u5173\u6CE8\u7684\u670B\u53CB\r\n\r\n\u4EE5\u53CA\r\n\r\n\u5B8C\u6210\u4E86\u8FD9\u4E2A\u6E38\u620F\u7684\r\n\r\n\u4F60\uFF01\r\n\n\nPRESS
+    Shooting Fx\r\n\r\n\r\n\r\n\n\u8C28\u4EE5\u6B64\u6E38\u620F\u732E\u7ED9\u6211\u4EB2\u7231\u7684\u59BB\u5B50\u548C\u5973\u513F\n\r\n\r\n\u611F\u8C22\u6240\u6709\u7ED9\u4E88\u8FD9\u4E2A\u6E38\u620F\u5173\u6CE8\u7684\u670B\u53CB\r\n\r\n\u4EE5\u53CA\r\n\r\n\u5B8C\u6210\u4E86\u8FD9\u4E2A\u6E38\u620F\u7684\r\n\r\n\u4F60\uFF01\r\n\n\nPRESS
     ANYKEY CONTINUE\n"
 --- !u!222 &1219291609
 CanvasRenderer:
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4316cdae916712d4eb2173ad4e5268b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopPosition: 2406
+  TopPosition: 1474
   ScrollingSpeed: 30
 --- !u!1 &1773394429
 GameObject:
