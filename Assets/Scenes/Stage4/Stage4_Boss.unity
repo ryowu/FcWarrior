@@ -2882,11 +2882,15 @@ PrefabInstance:
       objectReference: {fileID: 704017446}
     - target: {fileID: 4783045529509645699, guid: 1830d0ef05932e24d83ad24e2eb62ce5, type: 3}
       propertyPath: EnemyHP
-      value: 450
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783045529509645699, guid: 1830d0ef05932e24d83ad24e2eb62ce5, type: 3}
+      propertyPath: EnemyATK
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4783045529509645699, guid: 1830d0ef05932e24d83ad24e2eb62ce5, type: 3}
       propertyPath: EnemyMaxHP
-      value: 450
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 4829589123997109072, guid: 1830d0ef05932e24d83ad24e2eb62ce5, type: 3}
       propertyPath: m_Color.b
@@ -3210,7 +3214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1790778423
 Transform:
   m_ObjectHideFlags: 0
