@@ -123,9 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8566fe7d7abf418857602466f4fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMaxHP: 10
   EnemyHP: 10
-  EnemyATK: 1
+  EnemyATK: 3
   EnemyDEF: 0
+  BossSpeed: 2
 --- !u!114 &100444669249558411
 MonoBehaviour:
   m_ObjectHideFlags: 0

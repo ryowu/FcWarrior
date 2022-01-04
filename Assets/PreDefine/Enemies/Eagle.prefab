@@ -124,8 +124,10 @@ MonoBehaviour:
   hitSoundEffect: {fileID: 981577357604997428}
   diamond: {fileID: 3399550746941487942, guid: fda7c03590df1da44a368602e6f85b2c, type: 3}
   coin: {fileID: 2185596488343396936, guid: f7fa5da12e137324794bdb7fdb4fd66a, type: 3}
-  HealthPower: 5
+  DropItems: 1
   IsAlive: 0
+  eData: {fileID: 0}
+  IsImmune: 0
 --- !u!82 &6385357732273583401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -371,6 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8566fe7d7abf418857602466f4fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMaxHP: 10
   EnemyHP: 4
-  EnemyATK: 1
+  EnemyATK: 2
   EnemyDEF: 0
+  BossSpeed: 2

@@ -24,7 +24,7 @@ public class PlayerLife : MonoBehaviour
 	void Start()
 	{
 		if (SceneManager.GetActiveScene().name == "Stage1_1" || SceneManager.GetActiveScene().name == "Stage2_1" ||
-			SceneManager.GetActiveScene().name == "Stage3_1" || SceneManager.GetActiveScene().name == "Stage_Newbie")
+			SceneManager.GetActiveScene().name == "Stage3_1" || SceneManager.GetActiveScene().name == "Stage4_1")
 			PlayerData.ResetPlayer();
 
 		hp = PlayerData.PlayerHP;
@@ -139,11 +139,6 @@ public class PlayerLife : MonoBehaviour
 
 	private void RestartLevel()
 	{
-		//if (SceneManager.GetActiveScene().buildIndex == 7)
-		//{
-		//	GlobalVars.BossAbnormalSequenceEvent.StartAI = false;
-		//}
-
 		anim.SetInteger("state", 0);
 
 		//lost Player life

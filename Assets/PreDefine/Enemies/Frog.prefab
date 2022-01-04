@@ -120,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03620124, y: -0.12067151}
+  m_Offset: {x: -0.03620124, y: -0.17114484}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6324112, y: 1.2277026}
+  m_Size: {x: 1.6324112, y: 1.126756}
   m_EdgeRadius: 0
 --- !u!114 &137166647875724567
 MonoBehaviour:
@@ -149,7 +149,10 @@ MonoBehaviour:
   hitSoundEffect: {fileID: -2592947266800134912}
   diamond: {fileID: 3399550746941487942, guid: fda7c03590df1da44a368602e6f85b2c, type: 3}
   coin: {fileID: 2185596488343396936, guid: f7fa5da12e137324794bdb7fdb4fd66a, type: 3}
+  DropItems: 1
   IsAlive: 0
+  eData: {fileID: 0}
+  IsImmune: 0
 --- !u!82 &137166647875724566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -354,6 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8566fe7d7abf418857602466f4fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMaxHP: 10
   EnemyHP: 5
-  EnemyATK: 1
+  EnemyATK: 2
   EnemyDEF: 0
+  BossSpeed: 2

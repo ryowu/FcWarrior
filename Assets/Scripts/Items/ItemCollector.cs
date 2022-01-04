@@ -31,6 +31,8 @@ public class ItemCollector : MonoBehaviour
 				int restoreHPvalue = 2;
 				if (PlayerData.RecoverPowerUp) restoreHPvalue = (int)(restoreHPvalue * 1.5);
 				PlayerData.PlayerHP += restoreHPvalue;
+				if (PlayerData.PlayerHP > PlayerData.PlayerMaxHP)
+					PlayerData.PlayerHP = PlayerData.PlayerMaxHP;
 				healthyBar.SetHPValue(PlayerData.PlayerHP);
 			}
 			else

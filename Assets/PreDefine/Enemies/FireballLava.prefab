@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2590561, y: -0.15543318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30.1875, y: 30.1875}
+  m_Size: {x: 22.415886, y: 22.208633}
   m_EdgeRadius: 0
 --- !u!114 &6951402939698248886
 MonoBehaviour:
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f226688ce95707b408ca6757c39c3c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetPostion: {x: 0, y: 0}
+  MovingSpeed: 0
 --- !u!114 &480069203613281980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8566fe7d7abf418857602466f4fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMaxHP: 10
   EnemyHP: 10
   EnemyATK: 3
   EnemyDEF: 0
+  BossSpeed: 2
