@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5615785167446958181}
   - component: {fileID: 5615785167446958180}
   - component: {fileID: 5615785167446958178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,9 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f8566fe7d7abf418857602466f4fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMaxHP: 10
   EnemyHP: 1
   EnemyATK: 0
   EnemyDEF: 0
+  BossSpeed: 2
 --- !u!95 &5615785167446958179
 Animator:
   serializedVersion: 3
@@ -358,3 +360,5 @@ MonoBehaviour:
   coin: {fileID: 0}
   DropItems: 0
   IsAlive: 0
+  eData: {fileID: 0}
+  IsImmune: 0

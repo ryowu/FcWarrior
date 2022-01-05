@@ -24,7 +24,8 @@ public static class PlayerData
 	public static int SideWeaponCooldownPeriod = 1200;
 
 
-
+	//secrit skill
+	public static bool HP1000 = false;
 
 	//Stage Skills
 	public static bool RockGunEnabled = false;
@@ -49,8 +50,15 @@ public static class PlayerData
 
 	public static void ResetPlayer()
 	{
-		PlayerHP = 10;
-		PlayerMaxHP = 10;
+		if (HP1000)
+			PlayerHP = 1000;
+		else
+			PlayerHP = 10;
+
+		if (HP1000)
+			PlayerMaxHP = 1000;
+		else
+			PlayerMaxHP = 10;
 		PlayerDiamond = 0;
 	}
 }

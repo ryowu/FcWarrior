@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private GameObject PlayerBullet;
 	[SerializeField] private GameObject PlayerSword;
 	[SerializeField] private GameObject ChargegunBullet;
-	
+
 
 	[SerializeField] private LayerMask jumpableGround;
 	[SerializeField] private LayerMask jumpThroughGround;
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 		dirY = Input.GetAxisRaw("Vertical");
 
 		//Jump through platform ignore
-		if (dirY < 0 && (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K)))
+		if (dirY < 0 && (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Space)))
 		{
 			//if down+jump from a jumpThroughPlatform, then ignore the jump action
 			if (IsJumpThroughGrounded())
@@ -95,14 +95,14 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		//cancel jump
-		if (Input.GetButtonUp("Fire2") || Input.GetKeyUp(KeyCode.K))
+		if (Input.GetButtonUp("Fire2") || Input.GetKeyUp(KeyCode.K) || Input.GetKeyDown(KeyCode.Space))
 		{
 			if (rb.velocity.y > 0f)
 				rb.velocity = new Vector2(rb.velocity.x, 0f);
 		}
 
 		//Jump
-		if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K))
+		if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Space))
 		{
 			if (IsGrounded() || IsJumpThroughGrounded())
 			{

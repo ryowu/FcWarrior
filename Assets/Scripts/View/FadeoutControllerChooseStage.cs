@@ -33,11 +33,16 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 
 	private bool acceptInput;
 
+
+	private string password;
+
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		Cursor.visible = false;
 		LoadingLabel.enabled = false;
+		password = string.Empty;
 
 		stage = 2;
 
@@ -64,6 +69,44 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		password += Input.inputString;
+		if (password.Length > 8)
+		{
+			char firstChar = password[0];
+			password = password.Substring(1) + Input.inputString;
+		}
+
+		for (int i = password.Length - 1; i >= 0; i--)
+		{
+			if (i > 0)
+			{
+				if (password[i] == password[i - 1])
+				{
+					password = password.Remove(i, 1);
+				}
+			}
+		}
+
+		if (password.IndexOf("hpmax") > -1)
+		{
+			password = string.Empty;
+			enterStageEffect.Play();
+			//HP 1000
+			PlayerData.HP1000 = true;
+			stageName.text = "血量1000开启";
+			stageDescription.text = "身大力不亏，1000的血量应该能通关。。。。。。了吧？";
+		}
+
+		if (password.IndexOf("life30") > -1)
+		{
+			password = string.Empty;
+			enterStageEffect.Play();
+			//HP 1000
+			PlayerData.PlayerLife = 30;
+			stageName.text = "生命30开启";
+			stageDescription.text = "当然，这并不能让你从嗝屁的地方立即复活";
+		}
+
 		if (!acceptInput) return;
 
 		originalStage = stage;
