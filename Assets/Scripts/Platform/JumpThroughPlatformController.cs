@@ -21,7 +21,7 @@ public class JumpThroughPlatformController : MonoBehaviour
 	void Update()
 	{
 		dirY = Input.GetAxisRaw("Vertical");
-		if (dirY < 0 && (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K)))
+		if (dirY < 0 && (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Space)))
 		{
 			if (playerOnPlatform)
 			{
@@ -30,7 +30,7 @@ public class JumpThroughPlatformController : MonoBehaviour
 			else
 				effector.rotationalOffset = 0f;
 		}
-		else if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K))
+		else if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Space))
 		{
 			effector.rotationalOffset = 0f;
 		}

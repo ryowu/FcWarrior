@@ -11,6 +11,7 @@ public class CollectableItemController : MonoBehaviour
 	private Rigidbody2D rigidBody;
 	private SpriteRenderer sprite;
 	[SerializeField] private LayerMask jumpableGround;
+	[SerializeField] private LayerMask jumpThroughGround;
 	[SerializeField] private float movingSpeed = 8f;
 	[SerializeField] private bool CanDisappear = true;
 
@@ -73,6 +74,7 @@ public class CollectableItemController : MonoBehaviour
 
 	private bool IsGrounded()
 	{
-		return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+		return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround) ||
+			Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpThroughGround);
 	}
 }

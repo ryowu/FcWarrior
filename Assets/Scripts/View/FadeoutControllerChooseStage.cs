@@ -101,10 +101,20 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 		{
 			password = string.Empty;
 			enterStageEffect.Play();
-			//HP 1000
+			//life 30
 			PlayerData.PlayerLife = 30;
 			stageName.text = "生命30开启";
 			stageDescription.text = "当然，这并不能让你从嗝屁的地方立即复活";
+		}
+
+		if (password.IndexOf("life90") > -1)
+		{
+			password = string.Empty;
+			enterStageEffect.Play();
+			//life 99
+			PlayerData.PlayerLife = 99;
+			stageName.text = "生命99开启";
+			stageDescription.text = "90只是一个象征，实际上你现在拥有了99条命";
 		}
 
 		if (!acceptInput) return;
