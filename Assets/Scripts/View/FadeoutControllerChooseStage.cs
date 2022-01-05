@@ -22,6 +22,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 
 	[SerializeField] private GameObject skillGroup;
 	[SerializeField] private GameObject skillBox;
+	[SerializeField] private GameObject skillComponent;
 	private Animator anim;
 
 	float dirX, dirY;
@@ -96,8 +97,7 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 			stageName.text = "血量1000开启";
 			stageDescription.text = "身大力不亏，1000的血量应该能通关。。。。。。了吧？";
 		}
-
-		if (password.IndexOf("life30") > -1)
+		else if (password.IndexOf("life30") > -1)
 		{
 			password = string.Empty;
 			enterStageEffect.Play();
@@ -106,15 +106,40 @@ public class FadeoutControllerChooseStage : MonoBehaviour
 			stageName.text = "生命30开启";
 			stageDescription.text = "当然，这并不能让你从嗝屁的地方立即复活";
 		}
-
-		if (password.IndexOf("life90") > -1)
+		else if (password.IndexOf("life90") > -1)
 		{
 			password = string.Empty;
 			enterStageEffect.Play();
 			//life 99
 			PlayerData.PlayerLife = 99;
 			stageName.text = "生命99开启";
-			stageDescription.text = "90只是一个象征，实际上你现在拥有了99条命";
+			stageDescription.text = "数字90只是一个象征，实际上你现在拥有了99条命";
+		}
+		else if (password.IndexOf("trapsafe") > -1)
+		{
+			password = string.Empty;
+			enterStageEffect.Play();
+			//trap safe
+			GlobalVars.TrapSafe = true;
+			stageName.text = "陷阱免疫开启";
+			stageDescription.text = "当你掉入了深渊就会发现，你只能重启游戏了，记住这只是一个debug选项";
+		}
+		else if (password.IndexOf("gostage4") > -1)
+		{
+			password = string.Empty;
+			enterStageEffect.Play();
+			//stage4
+			PlayerData.DoubleJumpEnabled = true;
+			PlayerData.RockGunEnabled = true;
+			PlayerData.PowerSword = true;
+			stage4.SetActive(true);
+
+			SkillsController sc = skillComponent.GetComponent<SkillsController>();
+			sc.SetSkillTextState();
+
+			maxStage = 6;
+			stageName.text = "第四关开启";
+			stageDescription.text = "对于第四关来说，前三关只是开胃小菜，硬核才真正开始";
 		}
 
 		if (!acceptInput) return;

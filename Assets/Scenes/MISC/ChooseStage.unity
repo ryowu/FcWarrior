@@ -2141,6 +2141,7 @@ MonoBehaviour:
   stage4: {fileID: 1180263243}
   skillGroup: {fileID: 2142535261}
   skillBox: {fileID: 461893910}
+  skillComponent: {fileID: 460791508}
 --- !u!1 &1173585720
 GameObject:
   m_ObjectHideFlags: 0
