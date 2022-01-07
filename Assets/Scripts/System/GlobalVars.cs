@@ -3,6 +3,7 @@ public static class GlobalVars
 {
 	public static bool IsCameraFollowing;
 	public static bool IsPlayerControllable;
+	public static bool IsGamePaused = false;
 	//after enter secret room, use checkpoint to reset player position when exit room
 	public static bool UseCheckPoint = false;
 

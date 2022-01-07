@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private GameObject PlayerSword;
 	[SerializeField] private GameObject ChargegunBullet;
 
+	//Pause game label
+	[SerializeField] private GameObject GamePauseLabel;
 
 	[SerializeField] private LayerMask jumpableGround;
 	[SerializeField] private LayerMask jumpThroughGround;
@@ -51,19 +54,25 @@ public class PlayerMovement : MonoBehaviour
 
 		jumpPhase = 0;
 
-		//bulletStartShootTime = DateTime.Now;
-		//bulletCurrentCount = 0;
 		swordStartTime = DateTime.Now;
+
+		GlobalVars.IsGamePaused = false;
 	}
 
 	// Update is called once per frame
 	private void Update()
 	{
+		//Pause game
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			GlobalVars.IsGamePaused = !GlobalVars.IsGamePaused;
+			Time.timeScale = GlobalVars.IsGamePaused ? 0 : 1;
+			GamePauseLabel.SetActive(GlobalVars.IsGamePaused);
+			GlobalVars.IsPlayerControllable = !GlobalVars.IsGamePaused;
+		}
+
 		if (!GlobalVars.IsPlayerControllable)
 		{
-			//rb.bodyType = RigidbodyType2D.Dynamic;
-			//rb.velocity = new Vector2(0f, 0f);
-			//rb.bodyType = RigidbodyType2D.Static;
 			return;
 		}
 		else

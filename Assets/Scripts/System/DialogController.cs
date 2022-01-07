@@ -25,6 +25,8 @@ public class DialogController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (GlobalVars.IsGamePaused) return;
+
 		if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J)) && this.gameObject.activeSelf)
 		{
 			textIndex++;

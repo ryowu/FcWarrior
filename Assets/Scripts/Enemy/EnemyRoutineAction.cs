@@ -20,6 +20,7 @@ public class EnemyRoutineAction : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (GlobalVars.IsGamePaused) return;
 		ts = DateTime.Now - startRoutineTime;
 		if (ts.TotalMilliseconds > routineTimePeriod)
 		{

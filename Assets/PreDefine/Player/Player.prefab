@@ -198,6 +198,7 @@ MonoBehaviour:
   PlayerBullet: {fileID: 8267507858258757299, guid: 361630631fe20f445899fda771b5897e, type: 3}
   PlayerSword: {fileID: 6236579122370730555, guid: 4efd076bac514e24b8dfe97a93c18dd4, type: 3}
   ChargegunBullet: {fileID: 8987734852641726963, guid: 1babb7589f2602241b15cf6b905d7f2b, type: 3}
+  GamePauseLabel: {fileID: 5671609994834047619, guid: 35c8fff899f361a46a455c0a76b82856, type: 3}
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
