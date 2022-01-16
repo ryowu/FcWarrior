@@ -159,7 +159,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000021935, y: 91}
-  m_SizeDelta: {x: 625, y: 375}
+  m_SizeDelta: {x: 904.958, y: 542.9748}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &518527061
 MonoBehaviour:
@@ -551,12 +551,16 @@ MonoBehaviour:
   bgm_Start: {fileID: 1314316367}
   bgm_nervous: {fileID: 1314316366}
   storyPics:
-  - {fileID: 21300000, guid: 81420f2b3eae9a945b6214b3e7f93c06, type: 3}
-  - {fileID: 21300000, guid: ccbe9c12802c3c54a9e6283c11ed4bef, type: 3}
-  - {fileID: 21300000, guid: b0335d2597d30964c8888577880ec9fb, type: 3}
-  - {fileID: 21300000, guid: 2134d906f5421b74db71c3b9d322032a, type: 3}
-  - {fileID: 21300000, guid: 7a6479c5ce6d7e047b4d58acd3dec82c, type: 3}
-  - {fileID: 21300000, guid: b323c5234e9825946b5edf21932066e7, type: 3}
+  - {fileID: 21300000, guid: c7d3cdec72cc6804a9dcce5244ee5da7, type: 3}
+  - {fileID: 21300000, guid: c1f27f55cd3cea740a49f1460132b0b7, type: 3}
+  - {fileID: 21300000, guid: 3188477aeb2fcf241bb648914cd5b72d, type: 3}
+  - {fileID: 21300000, guid: e38a96a78e5f7ce4eae28115dd536cb9, type: 3}
+  - {fileID: 21300000, guid: 437ef5d262217b94b83b70ce699da1ee, type: 3}
+  - {fileID: 21300000, guid: 3c724faf3502f954dbe1f533f8ea568e, type: 3}
+  - {fileID: 21300000, guid: 667b87b2a31ff7342916abeb167b368c, type: 3}
+  - {fileID: 21300000, guid: e69e701b51f585c49a67bd2bef6d9a1c, type: 3}
+  - {fileID: 21300000, guid: 9612fb7cc7ae69f44afef4393f255711, type: 3}
+  - {fileID: 21300000, guid: 09e4eac899a766c4b92752997377df5f, type: 3}
 --- !u!82 &1314316366
 AudioSource:
   m_ObjectHideFlags: 0
@@ -885,7 +889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f96da75eba6681f40b3575dad53bf606, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7d3cdec72cc6804a9dcce5244ee5da7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

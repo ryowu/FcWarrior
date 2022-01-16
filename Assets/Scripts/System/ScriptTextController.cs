@@ -91,18 +91,27 @@ public class ScriptTextController : MonoBehaviour
 				}
 
 				//
-				if (scriptIndex == 1)
+				if (scriptIndex == 0)
 					scriptImage.sprite = storyPics[0];
-				else if(scriptIndex == 2)
+				else if(scriptIndex == 1)
 					scriptImage.sprite = storyPics[1];
-				else if (scriptIndex == 3)
+				else if (scriptIndex == 2)
 					scriptImage.sprite = storyPics[2];
-				else if (scriptIndex == 7)
+				else if (scriptIndex == 3)
 					scriptImage.sprite = storyPics[3];
-				else if (scriptIndex == 8)
+				else if (scriptIndex == 4)
 					scriptImage.sprite = storyPics[4];
-				else if (scriptIndex == 12)
+				else if (scriptIndex == 5)
 					scriptImage.sprite = storyPics[5];
+				else if (scriptIndex == 7)
+					scriptImage.sprite = storyPics[6];
+				else if (scriptIndex == 8)
+					scriptImage.sprite = storyPics[7];
+				else if (scriptIndex == 10)
+					scriptImage.sprite = storyPics[8];
+				else if (scriptIndex == 12)
+					scriptImage.sprite = storyPics[9];
+
 
 				inSentenceGap = false;
 			}
